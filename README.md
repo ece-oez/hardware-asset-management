@@ -1,42 +1,51 @@
-# Hardware-Asset-Management
+# vue-project
 
-## Was ist HAM
+This template should help get you started developing with Vue 3 in Vite.
 
-### Erklärung des Kunde
+## Recommended IDE Setup
 
-Hardware-Asset-Management stellt einen Unterbereich der IT Verwaltung dar, der sich exklusiv auf die physischen Komponenten der Informationstechnologie konzentriert. 
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-HAM beginnt mit ...
-- Der Beschaffung von Hardware, 
-- dauert ihren gesamten Lebenszyklus an 
-- und endet schließlich mit der endgültigen Entsorgung der stillgelegten Komponente.
----
+## Customize configuration
 
-### Allgemeine Erklärung
+See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Projektauftrag
+## Technologien
 
-### Anforderung Teil 1
 
-Der Kunde möchte die Erstellung eines Prototypen einer unterstützende Softwarelösung für die Verwaltung von Hardwareeinheiten und deren Komponenten als Individualsoftware.
 
-- Hardwareeinheiten bestehen aus Komponenten. 
-- Sie können umkonfiguriert werden. 
-- Die Komponenten können mehrfach verwendet werden.
+### Frameworks
 
-### Beispiel
+ [Vue](https://vuejs.org/guide/quick-start.html)
+ 
+ [TailwindCSS](https://tailwindui.com/components/preview)
 
-1. Im Arbeitsplatz Rechner PC1 sind unter anderem eine Grafikkarte und eine NIC verbaut. 
-2. Diese Komponenten sind nach Typen kategorisiert.
-    - Hier Grafikkarte und NIC. 
-3. Jeder Komponententyp wird durch einen spezifischen Satz von Merkmalen beschrieben. 
-    - Beispiel NIC: Hersteller, Seriennummer, MAC-Adresse, Datum der Erfassung, etc.
----
+## Project Setup
 
-### Anforderung Teil 2
+```sh
+npm install
+```
 
-1. Es ist eine **Datenhaltung** zu konzipieren 
-2. und ein **Userinterface** zu erstellen. 
-3. Der Kunde hat eine **MariaDB DBMS** zur Verfügung.
-4. Der Kunde möchte die **Rechte** an der Software **erwerben** mit der Option, sie selber weiter zu entwickeln. 
-5. Hierzu benötigt er eine vollständige **Dokumentation**.
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
