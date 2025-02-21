@@ -1,29 +1,25 @@
 <script setup>
-import TheIcons from './TheIcons.vue';
-import { useMenuStore } from '@/stores/counter';
-import {ref} from "vue";
+import TheIcons from './TheIcons.vue'
+import { useMenuStore } from '@/stores/counter'
 
-const menuStore = useMenuStore();
+const menuStore = useMenuStore()
 
-const menuIcon =ref("bi bi-list");
-
-function toggleMenu(){
-    menuStore.menuBtnState = !menuStore.menuBtnState;
-    if(menuStore.menuBtnState === false) menuIcon.value = "bi bi-list";
-    else menuIcon.value = "bi bi-arrow-left-square";
+function toggleMenu() {
+  menuStore.menuBtnState = !menuStore.menuBtnState
 }
-
 </script>
 
 <template>
-
-    <div class="border-b-2 border-stone-400 text-2xl text-stone-700 flex justify-between">
-        <TheIcons :icon="menuIcon" @click="toggleMenu()" :class="{'translate-x-70':menuStore.menuBtnState === true}"></TheIcons>
-        <TheIcons icon="bi bi-person-circle"></TheIcons>
-    </div>
-  
+  <div class="border-b-2 border-stone-400 text-2xl text-stone-700 flex justify-between">
+    <TheIcons
+      v-if="menuStore.menuBtnState"
+      icon="bi bi-arrow-left-square"
+      @click="toggleMenu()"
+      class="slide-right"
+    />
+    <TheIcons v-else icon="bi bi-list" @click="toggleMenu()" class="slide-left" />
+    <TheIcons icon="bi bi-person-circle"></TheIcons>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
