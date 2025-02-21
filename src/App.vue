@@ -1,9 +1,12 @@
 <script setup>
+import StartView from './views/StartView.vue';
+
 
 </script>
 
 <template>
-  App View
+  <StartView></StartView>
+  
 </template>
 
 <style scoped>
