@@ -1,13 +1,25 @@
 export const menuItems = [
   {
+    thema: 'Seiten',
+    elemente: [
+      {
+        titel: 'Home',
+        link: '/',
+        icon: 'bi bi-house',
+      },
+    ],
+  },
+  {
     thema: 'Information',
     elemente: [
       {
         titel: 'Guide',
-        icon: '',
+        link: '/guide',
+        icon: 'bi bi-list-task',
       },
       {
         titel: 'Dokumentation',
+        link: '/dokumentation',
         icon: 'bi bi-book',
       },
     ],
@@ -17,16 +29,18 @@ export const menuItems = [
     elemente: [
       {
         titel: 'Ansehen',
-        icon: '',
+        link: '/anzeigen',
+        icon: 'bi bi-eyeglasses',
       },
       {
         titel: 'Erstellen',
-        icon: '',
+        link: '/erstellen',
+        icon: 'bi bi-plus-circle-dotted',
       },
-      {
-        titel: 'Bearbeiten',
-        icon: '',
-      },
+      // {
+      //   titel: 'Bearbeiten',
+      //   icon: '',
+      // },
     ],
   },
   {
@@ -34,11 +48,13 @@ export const menuItems = [
     elemente: [
       {
         titel: 'Anwender',
-        icon: '',
+        link: '/anwendersettings',
+        icon: 'bi bi-person',
       },
       {
         titel: 'Anwendung',
-        icon: '',
+        link: '/anwendungsettings',
+        icon: 'bi bi-layout-text-window',
       },
     ],
   },
