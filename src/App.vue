@@ -1,14 +1,9 @@
 <script setup>
-import StartView from './views/StartView.vue';
-
-
+import WindowView from './views/WindowView.vue'
 </script>
 
 <template>
-  <StartView></StartView>
-  
+  <WindowView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
