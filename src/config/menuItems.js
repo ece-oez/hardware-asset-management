@@ -7,6 +7,20 @@ export const menuItems = [
         link: '/',
         icon: 'bi bi-house',
       },
+      {
+        titel: 'Ansehen',
+        link: '/anzeigen',
+        icon: 'bi bi-eyeglasses',
+      },
+      {
+        titel: 'Erstellen',
+        link: '/erstellen',
+        icon: 'bi bi-plus-circle-dotted',
+      },
+      // {
+      //   titel: 'Bearbeiten',
+      //   icon: '',
+      // },
     ],
   },
   {
@@ -22,25 +36,6 @@ export const menuItems = [
         link: '/dokumentation',
         icon: 'bi bi-book',
       },
-    ],
-  },
-  {
-    thema: 'Anwendung',
-    elemente: [
-      {
-        titel: 'Ansehen',
-        link: '/anzeigen',
-        icon: 'bi bi-eyeglasses',
-      },
-      {
-        titel: 'Erstellen',
-        link: '/erstellen',
-        icon: 'bi bi-plus-circle-dotted',
-      },
-      // {
-      //   titel: 'Bearbeiten',
-      //   icon: '',
-      // },
     ],
   },
   {

@@ -7,7 +7,7 @@ const menuStore = useMenuStore()
 </script>
 
 <template>
-  <div class="w-full h-full flex justify-around items-center">
+  <div class="flex justify-around items-center">
     <RouterLink to="/anzeigen" class="w-1/5 h-1/4">
       <WahlKarten icon="bi bi-eyeglasses text-6xl" text="Daten Anzeigen" />
     </RouterLink>
