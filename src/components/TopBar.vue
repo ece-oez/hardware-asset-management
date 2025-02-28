@@ -1,6 +1,6 @@
 <script setup>
 import TheIcons from './TheIcons.vue'
-import { useMenuStore } from '@/stores/counter'
+import { useMenuStore } from '@/stores/menu'
 
 const menuStore = useMenuStore()
 </script>

@@ -8,9 +8,9 @@ const treeViewState = ref(true)
 
 <template>
   <div
-    class="h-full w-max select-none p-5 text-stone-800 bg-stone-200 rounded-4xl flex flex-col gap-3"
-    :class="{ 'h-max p-0 gap-3': treeViewState === false }"
->
+    class="h-full w-max select-none text-stone-800 rounded-4xl flex flex-col gap-3"
+    :class="{ 'h-max mt-1.5 gap-3': treeViewState === false, 'p-5 bg-stone-200': treeViewState }"
+  >
     <div>
       <TheIcons
         @click="treeViewState = !treeViewState"

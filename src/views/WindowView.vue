@@ -1,7 +1,7 @@
 <script setup>
 import TheMenu from '@/components/TheMenu.vue'
 import TopBar from '@/components/TopBar.vue'
-import { useMenuStore } from '@/stores/counter'
+import { useMenuStore } from '@/stores/menu'
 
 const menuStore = useMenuStore()
 </script>

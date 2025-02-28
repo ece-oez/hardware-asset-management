@@ -1,6 +1,6 @@
 <script setup>
 import WahlKarten from '@/components/WahlKarten.vue'
-import { useMenuStore } from '@/stores/counter'
+import { useMenuStore } from '@/stores/menu'
 import { RouterLink } from 'vue-router'
 
 const menuStore = useMenuStore()
