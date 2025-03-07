@@ -2,14 +2,24 @@
 import { komponentenBaum } from '@/config/komponentenBaum'
 import TheIcons from './TheIcons.vue'
 import { ref } from 'vue'
+import { useKomponenteStore } from '@/stores/komponenten'
 
 const treeViewState = ref(false)
+
+const komponenteStore = useKomponenteStore()
+
+function logKomponenten() {
+  console.log(komponenteStore.komponenten)
+}
 </script>
 
 <template>
   <div
-    class="h-full w-max select-none text-stone-800 rounded-4xl flex flex-col gap-3"
-    :class="{ 'h-max mt-1.5 gap-3': treeViewState === false, 'p-5 ': treeViewState }"
+    class="h-full w-max select-none text-stone-800 rounded-4xl flex flex-col gap-2"
+    :class="{
+      'h-max mt-1.5 gap-3': treeViewState === false,
+      'mt-1.5 pe-5 ps-5 pb-0 ': treeViewState,
+    }"
   >
     <div>
       <TheIcons
@@ -26,7 +36,7 @@ const treeViewState = ref(false)
       />
     </div>
     <div v-if="treeViewState" class="pb-5 overflow-scroll scrollbar-hide">
-      <div v-for="komponente in komponentenBaum" class="font-bold">
+      <div v-for="komponente in komponenteStore.komponenten" class="font-bold">
         <button @click="komponente.show = !komponente.show">
           <TheIcons icon="bi bi-arrow-down-square" />
         </button>
@@ -37,7 +47,7 @@ const treeViewState = ref(false)
           :class="{ hidden: komponente.show === false }"
           class="font-normal"
         >
-          <input type="checkbox" />
+          <input type="checkbox" v-model="element.show" @click="logKomponenten()" />
           {{ element.heading }}
         </div>
       </div>

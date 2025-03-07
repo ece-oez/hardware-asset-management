@@ -8,7 +8,7 @@ const cardStore = useCardStore()
 </script>
 <template>
   <div class="flex gap-3 p-4">
-    <TreeView class="w-1/4"></TreeView>
+    <TreeView class="w-1/5"></TreeView>
     <TableView class="w-full"></TableView>
     <InformationCard v-if="cardStore.cardState"></InformationCard>
   </div>

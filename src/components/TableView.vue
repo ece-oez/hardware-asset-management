@@ -4,8 +4,11 @@ import SearchBar from './SearchBar.vue'
 import TheIcons from './TheIcons.vue'
 
 import { useCardStore } from '@/stores/card'
+import { useKomponenteStore } from '@/stores/komponenten'
 
 const cardStore = useCardStore()
+
+const komponenteStore = useKomponenteStore()
 </script>
 
 <template>
@@ -29,7 +32,7 @@ const cardStore = useCardStore()
       </tr>
 
       <tr
-        v-for="hardware in testHardware"
+        v-for="hardware in komponenteStore.updateHardware()"
         @click="((cardStore.cardState = true), (cardStore.currentHardware = hardware))"
         class="cursor-pointer hover:bg-stone-300"
       >
