@@ -8,7 +8,10 @@ const menuStore = useMenuStore()
 
 <template>
   <div class="h-screen w-full flex flex-row">
-    <TheMenu v-if="menuStore.menuBtnState" class="w-1/5 border-e-2 border-stone-400 shadow-2xl" />
+    <TheMenu
+      v-if="menuStore.menuBtnState"
+      class="w-1/5 border-e-2 border-stone-300 shadow-2xl shadow-stone-600"
+    />
 
     <div class="w-full h-screen">
       <TopBar class="w-full h-max p-3"></TopBar>

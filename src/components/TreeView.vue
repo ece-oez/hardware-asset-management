@@ -3,13 +3,13 @@ import { komponentenBaum } from '@/config/komponentenBaum'
 import TheIcons from './TheIcons.vue'
 import { ref } from 'vue'
 
-const treeViewState = ref(true)
+const treeViewState = ref(false)
 </script>
 
 <template>
   <div
     class="h-full w-max select-none text-stone-800 rounded-4xl flex flex-col gap-3"
-    :class="{ 'h-max mt-1.5 gap-3': treeViewState === false, 'p-5 bg-stone-200': treeViewState }"
+    :class="{ 'h-max mt-1.5 gap-3': treeViewState === false, 'p-5 ': treeViewState }"
   >
     <div>
       <TheIcons
