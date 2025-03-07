@@ -9,6 +9,33 @@ import { useKomponenteStore } from '@/stores/komponenten'
 const cardStore = useCardStore()
 
 const komponenteStore = useKomponenteStore()
+
+let kategorieListe = []
+
+function fillKategorieListe() {
+  kategorieListe = []
+  for (let index = 0; index < komponenteStore.komponenten.length; index++) {
+    const heading = komponenteStore.komponenten[index].heading
+
+    if (komponenteStore.komponenten[index].show === false) return
+    kategorieListe.push(heading)
+
+    for (let i = 0; i < komponenteStore.komponenten[index].elemente.length; i++) {
+      const komponente = komponenteStore.komponenten[index].elemente[i].heading
+      if (komponenteStore.komponenten[index].elemente[i].show === false) return
+      kategorieListe.push(komponente)
+    }
+  }
+}
+
+const filteredTestHardware = testHardware.filter((hardware) => {
+  fillKategorieListe()
+  for (let index = 0; index < kategorieListe.length; index++) {
+    const kategorie = kategorieListe[index]
+
+    if (hardware.kategorie === kategorie) return hardware
+  }
+})
 </script>
 
 <template>
@@ -32,7 +59,7 @@ const komponenteStore = useKomponenteStore()
       </tr>
 
       <tr
-        v-for="hardware in komponenteStore.updateHardware()"
+        v-for="hardware in filteredTestHardware"
         @click="((cardStore.cardState = true), (cardStore.currentHardware = hardware))"
         class="cursor-pointer hover:bg-stone-300"
       >
