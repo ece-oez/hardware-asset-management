@@ -3,8 +3,16 @@ import InformationCard from '@/components/InformationCard.vue'
 import TableView from '@/components/TableView.vue'
 import TreeView from '@/components/TreeView.vue'
 import { useCardStore } from '@/stores/card'
+import { useDatabaseStore } from '@/stores/database'
+import { onMounted } from 'vue'
 
 const cardStore = useCardStore()
+
+const databaseStore = useDatabaseStore()
+
+onMounted(() => {
+  databaseStore.getData()
+})
 </script>
 <template>
   <div class="flex gap-3 p-4">
