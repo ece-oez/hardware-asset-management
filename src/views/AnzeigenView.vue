@@ -12,6 +12,7 @@ const databaseStore = useDatabaseStore()
 
 onMounted(() => {
   databaseStore.getData()
+  // databaseStore.createData('lenovo', '789', '758' );
 })
 </script>
 <template>
