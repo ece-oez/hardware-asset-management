@@ -5,13 +5,26 @@ import TheIcons from './TheIcons.vue'
 import { useCardStore } from '@/stores/card'
 import { useTableStore } from '@/stores/table'
 import { useKomponenteStore } from '@/stores/komponenten'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const cardStore = useCardStore()
 
 const tableStore = useTableStore()
 
 const komponenteStore = useKomponenteStore()
+
+const filteredKomponentenZurHardware = computed(() => {
+  const filteredKomponentenZurHardware = tableStore.komponentenZurHardware.filter((hardware) => {
+    for (let index = 0; index < komponenteStore.komponenten.length; index++) {
+      for (let i = 0; i < komponenteStore.komponenten[index].elemente.length; i++) {
+        if (komponenteStore.komponenten[index].elemente[i].show === false) continue
+        if (hardware.kategorie === komponenteStore.komponenten[index].elemente[i].heading)
+          return hardware
+      }
+    }
+  })
+  return filteredKomponentenZurHardware
+})
 
 const filteredTestHardware = computed(() => {
   const filteredTestHardware = testHardware.filter((hardware) => {
@@ -29,21 +42,26 @@ const filteredTestHardware = computed(() => {
 function refreshData() {
   tableStore.showTable = 'normalTable'
 }
+
+const showModal = ref(false)
 </script>
 
 <template>
+  <div v-if="showModal" class="absolute w-100 h-100 bg-red-900">modal</div>
+
   <div class="flex flex-col gap-5">
     <div class="w-full flex items-center gap-2">
       <SearchBar class="w-full"></SearchBar>
       <TheIcons
+        @click="showModal = !showModal"
         icon="bi bi-funnel"
         class="text-2xl border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600"
-      ></TheIcons>
+      />
       <TheIcons
         @click="refreshData()"
         icon="bi bi-arrow-clockwise"
         class="text-2xl border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600"
-      ></TheIcons>
+      />
     </div>
     <table v-if="tableStore.showTable === 'normalTable'" class="border w-full">
       <tr class="text-white bg-stone-950 w-full">
@@ -83,7 +101,7 @@ function refreshData() {
       </tr>
 
       <tr
-        v-for="komponente in tableStore.komponentenZurHardware"
+        v-for="komponente in filteredKomponentenZurHardware"
         class="cursor-pointer hover:bg-stone-300"
         @click="((cardStore.cardState = true), (cardStore.currentHardware = komponente))"
       >

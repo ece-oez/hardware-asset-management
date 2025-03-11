@@ -16,9 +16,17 @@ const menuStore = useMenuStore()
     <div class="w-full h-screen">
       <TopBar class="w-full h-max p-3"></TopBar>
 
-      <RouterView class="w-full h-[94%]"></RouterView>
+      <RouterView class="w-full h-[90%]"></RouterView>
     </div>
   </div>
+
+  <!-- laptop: h-[90%] Desktop: h-[94%] -->
 </template>
 
-<style scoped></style>
+<style scoped>
+@media only screen and (max-width: 1500px) {
+  .height {
+    height: 50px;
+  }
+}
+</style>

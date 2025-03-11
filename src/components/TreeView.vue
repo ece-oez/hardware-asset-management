@@ -15,10 +15,10 @@ function logKomponenten() {
 
 <template>
   <div
-    class="h-max w-60 select-none text-stone-800 rounded-4xl flex flex-col gap-2"
+    class="h-full w-60 bg-stone-200 select-none text-stone-800 rounded-4xl flex flex-col gap-2"
     :class="{
-      'h-max w-max mt-1.5 gap-3': treeViewState === false,
-      'mt-1.5 pe-5 ps-5 pb-0 ': treeViewState,
+      'h-max w-max mt-1.5 gap-3 p-0': treeViewState === false,
+      'mt-1.5 pe-5 ps-5 pb-0 p-2': treeViewState,
     }"
   >
     <div>
@@ -32,7 +32,7 @@ function logKomponenten() {
         @click="treeViewState = !treeViewState"
         v-if="treeViewState === true"
         icon="bi bi-x"
-        class="w-max text-2xl px-1 border rounded-full"
+        class="w-max text-1xl px-1 border rounded-full"
       />
     </div>
     <div v-if="treeViewState" class="pb-5 overflow-scroll scrollbar-hide">
