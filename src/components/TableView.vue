@@ -5,35 +5,24 @@ import TheIcons from './TheIcons.vue'
 
 import { useCardStore } from '@/stores/card'
 import { useKomponenteStore } from '@/stores/komponenten'
+import { computed } from 'vue'
 
 const cardStore = useCardStore()
 
 const komponenteStore = useKomponenteStore()
 
-let kategorieListe = []
-
-function fillKategorieListe() {
-  kategorieListe = []
+const filteredTestHardware = testHardware.filter((hardware) => {
   for (let index = 0; index < komponenteStore.komponenten.length; index++) {
     const heading = komponenteStore.komponenten[index].heading
 
     if (komponenteStore.komponenten[index].show === false) return
-    kategorieListe.push(heading)
+    if (hardware.kategorie === heading) return hardware
 
     for (let i = 0; i < komponenteStore.komponenten[index].elemente.length; i++) {
       const komponente = komponenteStore.komponenten[index].elemente[i].heading
       if (komponenteStore.komponenten[index].elemente[i].show === false) return
-      kategorieListe.push(komponente)
+      if (hardware.kategorie === komponente) return hardware
     }
-  }
-}
-
-const filteredTestHardware = testHardware.filter((hardware) => {
-  fillKategorieListe()
-  for (let index = 0; index < kategorieListe.length; index++) {
-    const kategorie = kategorieListe[index]
-
-    if (hardware.kategorie === kategorie) return hardware
   }
 })
 </script>
