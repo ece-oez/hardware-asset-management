@@ -15,9 +15,9 @@ function logKomponenten() {
 
 <template>
   <div
-    class="h-full w-max select-none text-stone-800 rounded-4xl flex flex-col gap-2"
+    class="h-max w-60 select-none text-stone-800 rounded-4xl flex flex-col gap-2"
     :class="{
-      'h-max mt-1.5 gap-3': treeViewState === false,
+      'h-max w-max mt-1.5 gap-3': treeViewState === false,
       'mt-1.5 pe-5 ps-5 pb-0 ': treeViewState,
     }"
   >

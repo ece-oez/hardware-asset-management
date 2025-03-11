@@ -1,8 +1,11 @@
 <script setup>
 import { useCardStore } from '@/stores/card'
 import TheIcons from './TheIcons.vue'
+import { useTableStore } from '@/stores/table'
 
 const cardStore = useCardStore()
+
+const tableStore = useTableStore()
 </script>
 
 <template>
@@ -27,13 +30,23 @@ const cardStore = useCardStore()
       </div>
     </div>
     <div class="border border-stone-500 mt-5 rounded-md h-full">
-      <div class="text-center uppercase border-b border-stone-500 p-3">
-        Zugehörige Komponenten
-        
-      </div>
-      <div class=" flex gap-3 items-center justify-center p-4">
-        <button class="bg-stone-500 text-white rounded-lg px-5 py-1">Tabelle Anzeigen</button>
-        <button class="border border-stone-500 text-stone-600 rounded-lg px-5 py-1">Tabelle Schließen</button>
+      <div class="text-center uppercase border-b border-stone-500 p-3">Zugehörige Komponenten</div>
+      <div class="flex gap-3 items-center justify-center p-4">
+        <button
+          @click="
+            (tableStore.switchTableView(cardStore.currentHardware),
+            (tableStore.showTable = 'komponentenTable'))
+          "
+          class="bg-stone-500 text-white rounded-lg px-5 py-1"
+        >
+          Tabelle Anzeigen
+        </button>
+        <button
+          @click="tableStore.showTable = 'normalTable'"
+          class="border border-stone-500 text-stone-600 rounded-lg px-5 py-1"
+        >
+          Tabelle Schließen
+        </button>
       </div>
     </div>
   </div>

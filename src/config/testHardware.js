@@ -1,69 +1,74 @@
 export const testHardware = [
-
-  
-    {
-      "name": "Laptop A15 Pro",
-      "modellnummer": "A15P-2025",
-      "seriennummer": "SN12345",
-      "erfassungsdatum": "2025-03-01",
-      "hersteller": "Acer",
-      "kategorie": "Laptop",
-      "ort": "Lager"
-    },
-    {
-      "name": "Intel Core i7-12700H",
-      "modellnummer": "I7-12700H-01",
-      "seriennummer": "SN23456",
-      "erfassungsdatum": "2025-02-15",
-      "hersteller": "Intel",
-      "kategorie": "Prozessor",
-      "ort": "Lager"
-    },
-    {
-      "name": "Grafikkarte GTX 3080",
-      "modellnummer": "GTX3080-01",
-      "seriennummer": "SN98765",
-      "erfassungsdatum": "2025-02-01",
-      "hersteller": "NVIDIA",
-      "kategorie": "Grafikkarte",
-      "ort": "Lager"
-    },
-    {
-      "name": "16GB DDR5 RAM",
-      "modellnummer": "DDR5-16GB-01",
-      "seriennummer": "SN34567",
-      "erfassungsdatum": "2025-01-20",
-      "hersteller": "Corsair",
-      "kategorie": "Arbeitsspeicher",
-      "ort": "Lager"
-    },
-    {
-      "name": "512GB NVMe SSD",
-      "modellnummer": "NVMe512-01",
-      "seriennummer": "SN45678",
-      "erfassungsdatum": "2025-01-30",
-      "hersteller": "Samsung",
-      "kategorie": "Speicher",
-      "ort": "Lager"
-    },
-    {
-      "name": "14 Zoll Full HD Display",
-      "modellnummer": "FHD-14-01",
-      "seriennummer": "SN56789",
-      "erfassungsdatum": "2025-02-10",
-      "hersteller": "LG",
-      "kategorie": "Display",
-      "ort": "Lager"
-    },
-    {
-      "name": "Acer Predator Helios 300",
-      "modellnummer": "PH300-2025",
-      "seriennummer": "SN67890",
-      "erfassungsdatum": "2025-03-05",
-      "hersteller": "Acer",
-      "kategorie": "Laptop",
-      "ort": "Lager"
-    },
+  {
+    name: 'Laptop A15 Pro',
+    modellnummer: 'A15P-2025',
+    seriennummer: 'SN12345',
+    erfassungsdatum: '2025-03-01',
+    hersteller: 'Acer',
+    kategorie: 'Laptop',
+    ort: 'Lager',
+    verbaut: '',
+  },
+  {
+    name: 'Intel Core i7-12700H',
+    modellnummer: 'I7-12700H-01',
+    seriennummer: 'SN23456',
+    erfassungsdatum: '2025-02-15',
+    hersteller: 'Intel',
+    kategorie: 'Prozessor',
+    ort: 'Lager',
+    verbaut: 'SN12345',
+  },
+  {
+    name: 'Grafikkarte GTX 3080',
+    modellnummer: 'GTX3080-01',
+    seriennummer: 'SN98765',
+    erfassungsdatum: '2025-02-01',
+    hersteller: 'NVIDIA',
+    kategorie: 'Grafikkarte',
+    ort: 'Lager',
+    verbaut: 'SN12345',
+  },
+  {
+    name: '16GB DDR5 RAM',
+    modellnummer: 'DDR5-16GB-01',
+    seriennummer: 'SN34567',
+    erfassungsdatum: '2025-01-20',
+    hersteller: 'Corsair',
+    kategorie: 'RAM',
+    ort: 'Lager',
+    verbaut: 'SN12345',
+  },
+  {
+    name: '512GB NVMe SSD',
+    modellnummer: 'NVMe512-01',
+    seriennummer: 'SN45678',
+    erfassungsdatum: '2025-01-30',
+    hersteller: 'Samsung',
+    kategorie: 'Speicher',
+    ort: 'Lager',
+    verbaut: 'SN12345',
+  },
+  {
+    name: '14 Zoll Full HD Display',
+    modellnummer: 'FHD-14-01',
+    seriennummer: 'SN56789',
+    erfassungsdatum: '2025-02-10',
+    hersteller: 'LG',
+    kategorie: 'Display',
+    ort: 'Lager',
+    verbaut: 'SN12345',
+  },
+  {
+    name: 'Acer Predator Helios 300',
+    modellnummer: 'PH300-2025',
+    seriennummer: 'SN67890',
+    erfassungsdatum: '2025-03-05',
+    hersteller: 'Acer',
+    kategorie: 'Laptop',
+    ort: 'Lager',
+    verbaut: '',
+  },
 
   {
     name: 'RAM-Modul 16GB',
@@ -73,6 +78,7 @@ export const testHardware = [
     hersteller: 'Corsair',
     kategorie: 'RAM',
     ort: 'Raum 101',
+    verbaut: 'SN67890',
   },
   {
     name: 'SSD 1TB',
@@ -82,6 +88,7 @@ export const testHardware = [
     hersteller: 'Samsung',
     kategorie: 'Speicher',
     ort: 'Raum 202',
+    verbaut: 'SN67890',
   },
   {
     name: 'Motherboard Z590',
@@ -91,6 +98,7 @@ export const testHardware = [
     hersteller: 'ASUS',
     kategorie: 'Motherboard',
     ort: 'Lager',
+    verbaut: '',
   },
   {
     name: 'Prozessor i9-12900K',
@@ -100,6 +108,7 @@ export const testHardware = [
     hersteller: 'Intel',
     kategorie: 'Prozessor',
     ort: 'Raum 303',
+    verbaut: '',
   },
   {
     name: 'Netzteil 750W',
@@ -109,6 +118,7 @@ export const testHardware = [
     hersteller: 'EVGA',
     kategorie: 'Netzteil',
     ort: 'Raum 404',
+    verbaut: '',
   },
   {
     name: 'CPU-Kühler Hyper 212',
@@ -118,6 +128,7 @@ export const testHardware = [
     hersteller: 'Cooler Master',
     kategorie: 'Kühler',
     ort: 'Lager',
+    verbaut: '',
   },
   {
     name: 'USB 3.0 Hub',
@@ -127,6 +138,7 @@ export const testHardware = [
     hersteller: 'Anker',
     kategorie: 'Peripherie',
     ort: 'Raum 505',
+    verbaut: '',
   },
   {
     name: 'Externe Festplatte 2TB',
@@ -136,6 +148,7 @@ export const testHardware = [
     hersteller: 'Western Digital',
     kategorie: 'Speicher',
     ort: 'Raum 606',
+    verbaut: '',
   },
   {
     name: 'WLAN-Router AC1900',
@@ -145,5 +158,6 @@ export const testHardware = [
     hersteller: 'TP-Link',
     kategorie: 'Netzwerk',
     ort: 'Lager',
+    verbaut: '',
   },
 ]

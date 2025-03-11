@@ -1,7 +1,7 @@
 export const komponentenBaum = [
   {
     heading: 'Steuerelement',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -16,7 +16,7 @@ export const komponentenBaum = [
   },
   {
     heading: 'Grafik',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -36,7 +36,7 @@ export const komponentenBaum = [
 
   {
     heading: 'Speicher',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -88,7 +88,7 @@ export const komponentenBaum = [
 
   {
     heading: 'Sensoren',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -107,8 +107,36 @@ export const komponentenBaum = [
   },
 
   {
+    heading: 'Computer',
+    show: false,
+
+    elemente: [
+      {
+        heading: 'Laptop',
+        show: true,
+      },
+      {
+        heading: 'Thin-Client',
+        show: true,
+      },
+      {
+        heading: 'Thick-Client',
+        show: true,
+      },
+      {
+        heading: 'Server',
+        show: true,
+      },
+      {
+        heading: 'Notebook',
+        show: true,
+      },
+    ],
+  },
+
+  {
     heading: 'Handhelds',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -136,7 +164,7 @@ export const komponentenBaum = [
 
   {
     heading: 'Wearables',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -155,8 +183,8 @@ export const komponentenBaum = [
   },
 
   {
-    heading: 'Schnittstellen/ Adapter',
-    show: true,
+    heading: 'Schnittstellen',
+    show: false,
 
     elemente: [
       {
@@ -196,7 +224,7 @@ export const komponentenBaum = [
 
   {
     heading: 'Netzwerk',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -240,7 +268,7 @@ export const komponentenBaum = [
 
   {
     heading: 'Strom',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -264,7 +292,7 @@ export const komponentenBaum = [
 
   {
     heading: 'Peripherie',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -300,10 +328,9 @@ export const komponentenBaum = [
 
   {
     heading: 'Eingabegeräte',
-    show: true,
+    show: false,
 
     elemente: [
-      
       {
         heading: 'Tastatur',
         show: true,
@@ -320,7 +347,7 @@ export const komponentenBaum = [
   },
   {
     heading: 'Ausgabegeräte',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -335,12 +362,15 @@ export const komponentenBaum = [
         heading: 'Monitor',
         show: true,
       },
-      
+      {
+        heading: 'Display',
+        show: true,
+      },
     ],
   },
   {
     heading: 'Audio',
-    show: true,
+    show: false,
 
     elemente: [
       {
@@ -352,7 +382,7 @@ export const komponentenBaum = [
 
   {
     heading: 'Kühlung',
-    show: true,
+    show: false,
 
     elemente: [
       {
