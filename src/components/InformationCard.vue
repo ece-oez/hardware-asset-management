@@ -26,6 +26,16 @@ const cardStore = useCardStore()
         </div>
       </div>
     </div>
+    <div class="border border-stone-500 mt-5 rounded-md h-full">
+      <div class="text-center uppercase border-b border-stone-500 p-3">
+        Zugehörige Komponenten
+        
+      </div>
+      <div class=" flex gap-3 items-center justify-center p-4">
+        <button class="bg-stone-500 text-white rounded-lg px-5 py-1">Tabelle Anzeigen</button>
+        <button class="border border-stone-500 text-stone-600 rounded-lg px-5 py-1">Tabelle Schließen</button>
+      </div>
+    </div>
   </div>
 </template>
 

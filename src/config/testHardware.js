@@ -1,13 +1,70 @@
 export const testHardware = [
-  {
-    name: 'Grafikkarte GTX 3080',
-    modellnummer: 'GTX3080-01',
-    seriennummer: 'SN98765',
-    erfassungsdatum: '2025-02-01',
-    hersteller: 'NVIDIA',
-    kategorie: 'Grafikkarte',
-    ort: 'Lager',
-  },
+
+  
+    {
+      "name": "Laptop A15 Pro",
+      "modellnummer": "A15P-2025",
+      "seriennummer": "SN12345",
+      "erfassungsdatum": "2025-03-01",
+      "hersteller": "Acer",
+      "kategorie": "Laptop",
+      "ort": "Lager"
+    },
+    {
+      "name": "Intel Core i7-12700H",
+      "modellnummer": "I7-12700H-01",
+      "seriennummer": "SN23456",
+      "erfassungsdatum": "2025-02-15",
+      "hersteller": "Intel",
+      "kategorie": "Prozessor",
+      "ort": "Lager"
+    },
+    {
+      "name": "Grafikkarte GTX 3080",
+      "modellnummer": "GTX3080-01",
+      "seriennummer": "SN98765",
+      "erfassungsdatum": "2025-02-01",
+      "hersteller": "NVIDIA",
+      "kategorie": "Grafikkarte",
+      "ort": "Lager"
+    },
+    {
+      "name": "16GB DDR5 RAM",
+      "modellnummer": "DDR5-16GB-01",
+      "seriennummer": "SN34567",
+      "erfassungsdatum": "2025-01-20",
+      "hersteller": "Corsair",
+      "kategorie": "Arbeitsspeicher",
+      "ort": "Lager"
+    },
+    {
+      "name": "512GB NVMe SSD",
+      "modellnummer": "NVMe512-01",
+      "seriennummer": "SN45678",
+      "erfassungsdatum": "2025-01-30",
+      "hersteller": "Samsung",
+      "kategorie": "Speicher",
+      "ort": "Lager"
+    },
+    {
+      "name": "14 Zoll Full HD Display",
+      "modellnummer": "FHD-14-01",
+      "seriennummer": "SN56789",
+      "erfassungsdatum": "2025-02-10",
+      "hersteller": "LG",
+      "kategorie": "Display",
+      "ort": "Lager"
+    },
+    {
+      "name": "Acer Predator Helios 300",
+      "modellnummer": "PH300-2025",
+      "seriennummer": "SN67890",
+      "erfassungsdatum": "2025-03-05",
+      "hersteller": "Acer",
+      "kategorie": "Laptop",
+      "ort": "Lager"
+    },
+
   {
     name: 'RAM-Modul 16GB',
     modellnummer: 'RAM16GB-02',

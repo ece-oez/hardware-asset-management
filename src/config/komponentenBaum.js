@@ -1,367 +1,375 @@
 export const komponentenBaum = [
   {
     heading: 'Steuerelement',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Prozessor',
-        show: false,
+        show: true,
       },
       {
         heading: 'Motherboard',
-        show: false,
+        show: true,
       },
     ],
   },
   {
     heading: 'Grafik',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'GPU',
-        show: false,
+        show: true,
       },
       {
         heading: 'Grafikkarte',
-        show: false,
+        show: true,
       },
       {
         heading: 'VR-Brille',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Speicher',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'RAM',
-        show: false,
+        show: true,
       },
       {
         heading: 'SD-Karte',
-        show: false,
+        show: true,
       },
       {
         heading: 'Micro-SD',
-        show: false,
+        show: true,
       },
       {
         heading: 'USB-Stick',
-        show: false,
+        show: true,
       },
       {
         heading: 'SSD',
-        show: false,
+        show: true,
       },
       {
         heading: 'HDD',
-        show: false,
+        show: true,
       },
       {
         heading: 'CD',
-        show: false,
+        show: true,
       },
       {
         heading: 'DVD',
-        show: false,
+        show: true,
       },
       {
         heading: 'Blu-ray',
-        show: false,
+        show: true,
       },
       {
         heading: 'NAS',
-        show: false,
+        show: true,
       },
       {
         heading: 'SAN',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Sensoren',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Thermometer',
-        show: false,
+        show: true,
       },
       {
         heading: '...',
-        show: false,
+        show: true,
       },
       {
         heading: '...',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Handhelds',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Scanner',
-        show: false,
+        show: true,
       },
       {
         heading: 'E-Reader',
-        show: false,
+        show: true,
       },
       {
         heading: 'Tablets',
-        show: false,
+        show: true,
       },
       {
         heading: 'Smartphone',
-        show: false,
+        show: true,
       },
       {
         heading: 'Spiele-Konsole',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Wearables',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Smartglasses',
-        show: false,
+        show: true,
       },
       {
         heading: 'Smartwatch',
-        show: false,
+        show: true,
       },
       {
         heading: 'Fitnesstracker',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Schnittstellen/ Adapter',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Dockingstation',
-        show: false,
+        show: true,
       },
       {
         heading: 'USB-Hub',
-        show: false,
+        show: true,
       },
       {
         heading: 'Adapter',
-        show: false,
+        show: true,
       },
       {
         heading: 'USB',
-        show: false,
+        show: true,
       },
       {
         heading: 'USB-C',
-        show: false,
+        show: true,
       },
       {
         heading: 'Displayport',
-        show: false,
+        show: true,
       },
       {
         heading: 'HDMI',
-        show: false,
+        show: true,
       },
       {
         heading: 'VGA',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Netzwerk',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Repeater',
-        show: false,
+        show: true,
       },
       {
         heading: 'Modem',
-        show: false,
+        show: true,
       },
       {
         heading: 'Accesspoint',
-        show: false,
+        show: true,
       },
       {
         heading: 'Hub',
-        show: false,
+        show: true,
       },
       {
         heading: 'Router',
-        show: false,
+        show: true,
       },
       {
         heading: 'Switch',
-        show: false,
+        show: true,
       },
       {
         heading: 'Wlan-Adapter',
-        show: false,
+        show: true,
       },
       {
         heading: 'NIC',
-        show: false,
+        show: true,
       },
       {
         heading: 'Firewall',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Strom',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Netzteil',
-        show: false,
+        show: true,
       },
       {
         heading: 'Akku/ Batterie',
-        show: false,
+        show: true,
       },
       {
         heading: 'USV',
-        show: false,
+        show: true,
       },
       {
         heading: 'PoE Switch',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Peripherie',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Robotik',
-        show: false,
+        show: true,
       },
       {
         heading: 'Drohne',
-        show: false,
+        show: true,
       },
       {
         heading: 'Joystick',
-        show: false,
+        show: true,
       },
       {
         heading: 'Scanner',
-        show: false,
+        show: true,
       },
       {
         heading: 'Mikrofon',
-        show: false,
+        show: true,
       },
       {
         heading: 'Webcam',
-        show: false,
+        show: true,
       },
       {
         heading: 'Headset',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
-    heading: 'Ein und Ausgabegeräte',
-    show: false,
+    heading: 'Eingabegeräte',
+    show: true,
+
+    elemente: [
+      
+      {
+        heading: 'Tastatur',
+        show: true,
+      },
+      {
+        heading: 'Maus',
+        show: true,
+      },
+      {
+        heading: 'Touchscreen',
+        show: true,
+      },
+    ],
+  },
+  {
+    heading: 'Ausgabegeräte',
+    show: true,
 
     elemente: [
       {
         heading: 'Lautsprecher',
-        show: false,
+        show: true,
       },
       {
         heading: 'Drucker',
-        show: false,
+        show: true,
       },
       {
         heading: 'Monitor',
-        show: false,
+        show: true,
       },
-      {
-        heading: 'Tastatur',
-        show: false,
-      },
-      {
-        heading: 'Maus',
-        show: false,
-      },
-      {
-        heading: 'Touchscreen',
-        show: false,
-      },
+      
     ],
   },
-
   {
     heading: 'Audio',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Soundkarte',
-        show: false,
+        show: true,
       },
     ],
   },
 
   {
     heading: 'Kühlung',
-    show: false,
+    show: true,
 
     elemente: [
       {
         heading: 'Kühler',
-        show: false,
+        show: true,
       },
       {
         heading: 'Lüfter',
-        show: false,
+        show: true,
       },
       {
         heading: 'Wasser Kühlung',
-        show: false,
+        show: true,
       },
       {
         heading: 'Thermoelektrische Kühlung',
-        show: false,
+        show: true,
       },
     ],
   },

@@ -11,7 +11,7 @@ const cardStore = useCardStore()
 const databaseStore = useDatabaseStore()
 
 onMounted(() => {
-  databaseStore.getData()
+  // databaseStore.getData()
   // databaseStore.createData('lenovo', '789', '758' );
 })
 </script>
