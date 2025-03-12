@@ -7,13 +7,23 @@ import { useTableStore } from '@/stores/table'
 import { useKomponenteStore } from '@/stores/komponenten'
 import { computed, ref } from 'vue'
 import { useModalStore } from '@/stores/modal'
+import { useFilterStore } from '@/stores/filterItems'
 
+// stores
 const cardStore = useCardStore()
 
 const tableStore = useTableStore()
 
 const komponenteStore = useKomponenteStore()
 
+const modalStore = useModalStore()
+
+const filterStore = useFilterStore()
+
+// ref vars
+const filter = ref(false)
+
+// filter second table
 const filteredKomponentenZurHardware = computed(() => {
   const filteredKomponentenZurHardware = tableStore.komponentenZurHardware.filter((hardware) => {
     for (let index = 0; index < komponenteStore.komponenten.length; index++) {
@@ -27,6 +37,7 @@ const filteredKomponentenZurHardware = computed(() => {
   return filteredKomponentenZurHardware
 })
 
+// filter normal table
 const filteredTestHardware = computed(() => {
   const filteredTestHardware = testHardware.filter((hardware) => {
     for (let index = 0; index < komponenteStore.komponenten.length; index++) {
@@ -37,7 +48,15 @@ const filteredTestHardware = computed(() => {
       }
     }
   })
-  return filteredTestHardware
+
+  if (filter.value === false) return filteredTestHardware
+
+  const searchHardware = testHardware.filter((hardware) => {
+    const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
+    if (hardware[filterItem] === filterStore.currentFilterItem[filterItem]) return hardware
+  })
+
+  return searchHardware
 })
 
 function refreshData() {
@@ -46,15 +65,63 @@ function refreshData() {
   cardStore.currentHardware = ''
 }
 
-const modalStore = useModalStore()
+function deleteFilter() {
+  filter.value = false
+  filterStore.searchBarText = ''
+}
+
+function updateFilterObj() {
+  const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
+
+  filterStore.currentFilterItem[filterItem] = filterStore.searchBarText
+  filter.value = true
+}
 </script>
 
 <template>
   <div class="flex flex-col gap-5">
     <div class="w-full flex items-center gap-2">
       <SearchBar class="w-full">
-        <TheIcons icon="bi bi-search" class="text-2xl ps-2 text-stone-600"></TheIcons>
+        <input
+          type="text"
+          placeholder="Suche nach ..."
+          v-model="filterStore.searchBarText"
+          @change="filter = false"
+          class="outline-none w-full"
+        />
+        <TheIcons
+          @click="updateFilterObj()"
+          icon="bi bi-search"
+          class="text-2xl ps-2 text-stone-600"
+        ></TheIcons>
       </SearchBar>
+      <div
+        @click="filterStore.filterToggleBarState = !filterStore.filterToggleBarState"
+        class="select-none flex gap-2 items-center text-md border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-200 hover:text-stone-800 hover:duration-300 not-focus:duration-200"
+      >
+        {{ filterStore.currentToggleFilterItem }}
+        <TheIcons v-if="filterStore.filterToggleBarState === false" icon="bi bi-caret-down" />
+        <TheIcons v-if="filterStore.filterToggleBarState" icon="bi bi-caret-down-fill" />
+        <div
+          v-if="filterStore.filterToggleBarState"
+          class="absolute -translate-x-3 translate-y-42 bg-white border rounded-md border-stone-500 text-center"
+        >
+          <div
+            v-for="item in filterStore.filterItemsCapStr"
+            class="p-2 rounded-md hover:bg-stone-200"
+            @click="filterStore.currentToggleFilterItem = item"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+      <div
+        @click="deleteFilter()"
+        class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-100 hover:duration-200 not-focus:duration-200"
+      >
+        Löschen
+      </div>
+
       <TheIcons
         @click="modalStore.showModal = !modalStore.showModal"
         icon="bi bi-funnel"

@@ -11,7 +11,9 @@ const menuStore = useMenuStore()
       icon="bi bi-list"
       @click="menuStore.menuBtnState = !menuStore.menuBtnState"
       :class="{ invisible: menuStore.menuBtnState === true }"
+      class="border border-stone-400 px-1 rounded-lg text-stone-600"
     />
+
     <TheIcons icon="bi bi-person-circle"></TheIcons>
   </div>
 </template>

@@ -68,7 +68,9 @@ const komponenteStore = useKomponenteStore()
       />
     </div>
 
-    <SearchBar v-if="treeViewState" class="text-sm h-8 w-full"></SearchBar>
+    <SearchBar v-if="treeViewState" class="text-sm h-8 w-full">
+      <input type="text" placeholder="Suche nach ..." class="outline-none w-full" />
+    </SearchBar>
 
     <!-- Baum -->
     <div v-if="treeViewState" class="pb-5 overflow-scroll scrollbar-hide text-stone-400">

@@ -8,10 +8,15 @@ const menuStore = useMenuStore()
 
 <template>
   <div class="h-full flex flex-col gap-3 p-3 relative top-0 rounded-e-3xl">
-    <TheIcons
-      icon="bi bi-arrow-left-square text-2xl"
-      @click="menuStore.menuBtnState = !menuStore.menuBtnState"
-    />
+    <div class="flex justify-between">
+      <TheIcons icon="bi bi-person-circle" @click="" class="px-1 text-stone-600 w-max text-3xl" />
+      <TheIcons
+        icon="bi bi-x"
+        @click="menuStore.menuBtnState = !menuStore.menuBtnState"
+        class="border border-stone-400 px-1 rounded-lg text-stone-600 w-max text-2xl"
+      />
+    </div>
+
     <div
       v-for="menuItem in menuItems"
       class="select-none uppercase text-xl text-stone-900 border-b pb-2 border-stone-300"
