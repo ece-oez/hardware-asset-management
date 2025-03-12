@@ -17,9 +17,9 @@ const komponenteStore = useKomponenteStore()
 const filteredKomponentenZurHardware = computed(() => {
   const filteredKomponentenZurHardware = tableStore.komponentenZurHardware.filter((hardware) => {
     for (let index = 0; index < komponenteStore.komponenten.length; index++) {
-      for (let i = 0; i < komponenteStore.komponenten[index].elemente.length; i++) {
-        if (komponenteStore.komponenten[index].elemente[i].show === false) continue
-        if (hardware.kategorie === komponenteStore.komponenten[index].elemente[i].heading)
+      for (let i = 0; i < komponenteStore.komponenten[index].children.length; i++) {
+        if (komponenteStore.komponenten[index].children[i].show === false) continue
+        if (hardware.kategorie === komponenteStore.komponenten[index].children[i].heading)
           return hardware
       }
     }
@@ -30,9 +30,9 @@ const filteredKomponentenZurHardware = computed(() => {
 const filteredTestHardware = computed(() => {
   const filteredTestHardware = testHardware.filter((hardware) => {
     for (let index = 0; index < komponenteStore.komponenten.length; index++) {
-      for (let i = 0; i < komponenteStore.komponenten[index].elemente.length; i++) {
-        if (komponenteStore.komponenten[index].elemente[i].show === false) continue
-        if (hardware.kategorie === komponenteStore.komponenten[index].elemente[i].heading)
+      for (let i = 0; i < komponenteStore.komponenten[index].children.length; i++) {
+        if (komponenteStore.komponenten[index].children[i].show === false) continue
+        if (hardware.kategorie === komponenteStore.komponenten[index].children[i].heading)
           return hardware
       }
     }
@@ -52,7 +52,9 @@ const modalStore = useModalStore()
 <template>
   <div class="flex flex-col gap-5">
     <div class="w-full flex items-center gap-2">
-      <SearchBar class="w-full"></SearchBar>
+      <SearchBar class="w-full">
+        <TheIcons icon="bi bi-search" class="text-2xl ps-2 text-stone-600"></TheIcons>
+      </SearchBar>
       <TheIcons
         @click="modalStore.showModal = !modalStore.showModal"
         icon="bi bi-funnel"
@@ -81,7 +83,7 @@ const modalStore = useModalStore()
         <tr
           v-for="hardware in filteredTestHardware"
           @click="((cardStore.cardState = true), (cardStore.currentHardware = hardware))"
-          class="cursor-pointer hover:bg-stone-300"
+          class="cursor-pointer hover:bg-stone-300 hover:text-black"
           :class="{ 'bg-stone-600 text-white': hardware.name === cardStore.currentHardware.name }"
         >
           <td class="w-1/7 border border-stone-500 text-center">{{ hardware.name }}</td>
