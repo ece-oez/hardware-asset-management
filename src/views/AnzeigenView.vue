@@ -2,6 +2,7 @@
 import InformationCard from '@/components/InformationCard.vue'
 import TableView from '@/components/TableView.vue'
 import TreeView from '@/components/TreeView.vue'
+import TheModal from '@/components/TheModal.vue'
 import { useCardStore } from '@/stores/card'
 import { useDatabaseStore } from '@/stores/database'
 import { useModalStore } from '@/stores/modal'
@@ -19,10 +20,14 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="flex gap-3 p-4" :class="{ '': modalStore.showModal }">
-    <div v-if="modalStore.showModal" class="absolute w-300 h-100 bg-red-900 rounded-lg">modal</div>
-    <TreeView class="w-1/5"></TreeView>
-    <TableView class="w-full"></TableView>
-    <InformationCard v-if="cardStore.cardState"></InformationCard>
+  <div class="flex gap-3 p-4">
+    <TheModal></TheModal>
+
+    <TreeView class="w-1/5" :class="{ 'blur-sm': modalStore.showModal }"></TreeView>
+    <TableView class="w-full" :class="{ 'blur-sm': modalStore.showModal }"></TableView>
+    <InformationCard
+      v-if="cardStore.cardState"
+      :class="{ 'blur-sm': modalStore.showModal }"
+    ></InformationCard>
   </div>
 </template>

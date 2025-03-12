@@ -58,12 +58,12 @@ const modalStore = useModalStore()
       <TheIcons
         @click="modalStore.showModal = !modalStore.showModal"
         icon="bi bi-funnel"
-        class="text-2xl border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600"
+        class="text-2xl border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-300 hover:text-white hover:duration-200 not-focus:duration-200"
       />
       <TheIcons
         @click="refreshData()"
         icon="bi bi-arrow-clockwise"
-        class="text-2xl border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600"
+        class="text-2xl border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-300 hover:text-white hover:duration-200 not-focus:duration-200"
       />
     </div>
     <table v-if="tableStore.showTable === 'normalTable'" class="border border-separate w-full">
