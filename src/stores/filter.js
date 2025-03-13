@@ -49,15 +49,15 @@ export const useFilterStore = defineStore('filter', () => {
     ort: '',
   })
 
-  const deletedFilterItem = reactive({
-    name: '',
-    modellnummer: '',
-    seriennummer: '',
-    erfassungsdatum: '',
-    hersteller: '',
-    kategorie: '',
-    ort: '',
-  })
+  // const deletedFilterItem = reactive({
+  //   name: '',
+  //   modellnummer: '',
+  //   seriennummer: '',
+  //   erfassungsdatum: '',
+  //   hersteller: '',
+  //   kategorie: '',
+  //   ort: '',
+  // })
 
   // hardwareFilterKeys
   /**
@@ -113,7 +113,7 @@ export const useFilterStore = defineStore('filter', () => {
     filter: searchFilterState,
     formularFilterState,
     currentFilterItem,
-    deletedFilterItem,
+
     filterItemsCapStr,
     modalSlotsCap,
     mapFilterItems,

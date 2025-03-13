@@ -66,7 +66,7 @@ const filteredTestHardware = computed(() => {
         if (result === true) resultCount++
       }
 
-      if (resultCount > 0) {
+      if (resultCount === 7) {
         return hardware
       }
     })
@@ -83,9 +83,6 @@ function updateFilterObj() {
   filterStore.filter = true
 }
 
-function createHardware() {
-  alert('created')
-}
 function updateHardware() {
   alert('updated')
 }
@@ -98,7 +95,7 @@ function refreshData() {
   tableStore.showTable = 'normalTable'
   cardStore.cardState = false
   cardStore.currentHardware = ''
-  filterStore.currentFilterItem = filterStore.deletedFilterItem
+  // filterStore.currentFilterItem = filterStore.deletedFilterItem
   filterStore.formularFilterState = false
 }
 </script>
@@ -109,7 +106,7 @@ function refreshData() {
     <div class="w-full flex items-center gap-2">
       <!-- Searchbar -->
 
-      <SearchBar class="w-full h-full"> </SearchBar>
+      <SearchBar :disabled="cardStore.currentHardware === ''" class="w-full h-full"> </SearchBar>
       <!-- SearchIcon -->
 
       <TheIcons
@@ -143,12 +140,6 @@ function refreshData() {
       </div>
       <!-- Hardware Clear -->
 
-      <button
-        @click="createHardware()"
-        class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-green-100 hover:duration-200 not-focus:duration-200"
-      >
-        Erstellen
-      </button>
       <button
         @click="updateHardware()"
         :disabled="cardStore.currentHardware === ''"
