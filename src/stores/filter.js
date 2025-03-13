@@ -20,7 +20,8 @@ export const useFilterStore = defineStore('filter', () => {
   /**
    * @var status für search filter aktiv
    */
-  const filterState = ref(false)
+  const searchFilterState = ref(false)
+  const formularFilterState = ref(false)
 
   /**
    * @var beispiel spalten für das modal
@@ -39,6 +40,16 @@ export const useFilterStore = defineStore('filter', () => {
    * @var hardware auf die gefilter wird
    */
   const currentFilterItem = reactive({
+    name: '',
+    modellnummer: '',
+    seriennummer: '',
+    erfassungsdatum: '',
+    hersteller: '',
+    kategorie: '',
+    ort: '',
+  })
+
+  const deletedFilterItem = reactive({
     name: '',
     modellnummer: '',
     seriennummer: '',
@@ -99,11 +110,14 @@ export const useFilterStore = defineStore('filter', () => {
     currentToggleFilterItem,
     filterToggleBarState,
     searchBarText,
-    filter: filterState,
+    filter: searchFilterState,
+    formularFilterState,
     currentFilterItem,
+    deletedFilterItem,
     filterItemsCapStr,
     modalSlotsCap,
     mapFilterItems,
     testHardwareModal,
+    filterItems,
   }
 })

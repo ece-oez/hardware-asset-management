@@ -47,16 +47,31 @@ const filteredTestHardware = computed(() => {
     }
   })
 
-  if (filterStore.filter === false) return filteredTestHardware
+  if (filterStore.filter === true) {
+    const searchHardware = testHardware.filter((hardware) => {
+      const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
+      const result = hardware[filterItem].includes(filterStore.currentFilterItem[filterItem])
+      if (result) return hardware
+    })
+    return searchHardware
+  } else if (filterStore.formularFilterState === true) {
+    // filter anhand Filter formular
+    const searchFormularHardware = testHardware.filter((hardware) => {
+      let resultCount = 0
+      for (let index = 0; index < 7; index++) {
+        const result = hardware[filterStore.filterItems[index]].includes(
+          filterStore.currentFilterItem[filterStore.filterItems[index]],
+        )
 
-  // filter anhand SearchBar inputText
-  const searchHardware = testHardware.filter((hardware) => {
-    const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
-    const result = hardware[filterItem].includes(filterStore.currentFilterItem[filterItem])
-    if (result) return hardware
-  })
+        if (result === true) resultCount++
+      }
 
-  return searchHardware
+      if (resultCount > 0) {
+        return hardware
+      }
+    })
+    return searchFormularHardware
+  } else return filteredTestHardware
 })
 
 // func für SearchBtn: SearchBar inputText in reactive Object speichern und filter auf true setzen um "filter anhand SearchBar inputText" zu triggern
@@ -83,6 +98,8 @@ function refreshData() {
   tableStore.showTable = 'normalTable'
   cardStore.cardState = false
   cardStore.currentHardware = ''
+  filterStore.currentFilterItem = filterStore.deletedFilterItem
+  filterStore.formularFilterState = false
 }
 </script>
 
