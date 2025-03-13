@@ -1,8 +1,7 @@
 <script setup>
-import InformationCard from '@/components/InformationCard.vue'
-import TableView from '@/components/TableView.vue'
-import TreeView from '@/components/TreeView.vue'
-import TheModal from '@/components/TheModal.vue'
+import InformationCard from '@/components/ansehen/InformationCard.vue'
+import TableView from '@/components/ansehen/TableView.vue'
+import TreeView from '@/components/ansehen/TreeView.vue'
 import { useCardStore } from '@/stores/card'
 import { useDatabaseStore } from '@/stores/database'
 import { useModalStore } from '@/stores/modal'

@@ -1,6 +1,5 @@
 <script setup>
-import { testHardware } from '@/config/testHardware'
-import { useFilterStore } from '@/stores/filterItems'
+import { useFilterStore } from '@/stores/filter'
 import { useModalStore } from '@/stores/modal'
 
 const modalStore = useModalStore()
@@ -10,7 +9,7 @@ const filterStore = useFilterStore()
 function searchForHardware() {
   const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
 
-  filterStore.currentFilterItem[filterItem] = filterStore.searchBarText
+  filterStore.testHardwareModal[filterItem] = filterStore.searchBarText
   filter.value = true
 }
 </script>

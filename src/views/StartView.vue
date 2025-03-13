@@ -1,5 +1,5 @@
 <script setup>
-import WahlKarten from '@/components/WahlKarten.vue'
+import WahlKarten from '@/components/home/WahlKarten.vue'
 import { useMenuStore } from '@/stores/menu'
 import { RouterLink } from 'vue-router'
 

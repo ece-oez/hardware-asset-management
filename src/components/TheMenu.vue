@@ -1,7 +1,7 @@
 <script setup>
 import { useMenuStore } from '@/stores/menu.js'
 import { menuItems } from '../config/menuItems.js'
-import TheIcons from './TheIcons.vue'
+import TheIcons from '@/components/TheIcons.vue'
 
 const menuStore = useMenuStore()
 </script>

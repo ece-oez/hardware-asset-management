@@ -1,6 +1,6 @@
 <script setup>
-import ConstructionSite from '@/components/ConstructionSite.vue'
-import LoadingSite from '@/components/LoadingSite.vue'
+import ConstructionSite from '@/components/site_overlay/ConstructionSite.vue'
+import LoadingSite from '@/components/site_overlay/LoadingSite.vue'
 </script>
 <template>
   <!-- <ConstructionSite><div class="font-bold">"Dokumentation"</div></ConstructionSite> -->

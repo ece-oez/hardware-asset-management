@@ -1,6 +1,6 @@
 <script setup>
 import { useCardStore } from '@/stores/card'
-import TheIcons from './TheIcons.vue'
+import TheIcons from '@/components/TheIcons.vue'
 import { useTableStore } from '@/stores/table'
 
 const cardStore = useCardStore()
