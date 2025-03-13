@@ -68,10 +68,14 @@ function updateFilterObj() {
   filterStore.filter = true
 }
 
-// func für SearchClearBtn: Searchbar filterState auf false setzen (= Nicht mehr auf eine Hardw. filtern), Searchbar Text leer setzen
-function deleteFilter() {
-  filterStore.filter = false
-  filterStore.searchBarText = ''
+function createHardware() {
+  alert('created')
+}
+function updateHardware() {
+  alert('updated')
+}
+function deleteHardware() {
+  alert('deleted')
 }
 
 // func für RefreshBtn: normale Tabelle anzeigen, InformationCard schließen, ausgewählte Hardware leer setzen
@@ -120,14 +124,28 @@ function refreshData() {
           </div>
         </div>
       </div>
-      <!-- SearchClear -->
+      <!-- Hardware Clear -->
 
-      <div
-        @click="deleteFilter()"
-        class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-100 hover:duration-200 not-focus:duration-200"
+      <button
+        @click="createHardware()"
+        class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-green-100 hover:duration-200 not-focus:duration-200"
+      >
+        Erstellen
+      </button>
+      <button
+        @click="updateHardware()"
+        :disabled="cardStore.currentHardware === ''"
+        class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-100 hover:duration-200 not-focus:duration-200 disabled:hidden"
+      >
+        Bearbeiten
+      </button>
+      <button
+        @click="deleteHardware()"
+        :disabled="cardStore.currentHardware === ''"
+        class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-red-100 hover:duration-200 not-focus:duration-200 disabled:hidden"
       >
         Löschen
-      </div>
+      </button>
 
       <!-- FilterIcon -->
 
