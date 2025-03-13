@@ -8,14 +8,17 @@ const modalStore = useModalStore()
 const filterStore = useFilterStore()
 
 function searchForHardware() {
-  // code
+  const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
+
+  filterStore.currentFilterItem[filterItem] = filterStore.searchBarText
+  filter.value = true
 }
 </script>
 
 <template>
   <div
     v-if="modalStore.showModal"
-    class="absolute flex justify-center items-center w-[98%] h-[90%]"
+    class="absolute flex justify-center z-4000 items-center w-full h-full"
   >
     <div
       v-if="modalStore.showModal"

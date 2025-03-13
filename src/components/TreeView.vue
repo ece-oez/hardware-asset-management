@@ -1,9 +1,7 @@
 <script setup>
-import { komponentenBaum } from '@/config/komponentenBaum'
 import TheIcons from './TheIcons.vue'
 import { ref } from 'vue'
 import { useKomponenteStore } from '@/stores/komponenten'
-import SearchBar from './SearchBar.vue'
 
 const treeViewState = ref(false)
 
@@ -45,6 +43,16 @@ const komponenteStore = useKomponenteStore()
         class="px-1 rounded-sm hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
       />
 
+      <TheIcons
+        icon="bi bi-dash-square"
+        class="px-1 rounded-sm hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
+      />
+
+      <TheIcons
+        icon="bi bi-dash-square-fill"
+        class="px-1 rounded-sm hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
+      />
+
       <!-- <TheIcons
         icon="bi bi-patch-plus-fill"
         class="text-blue-500 px-1 rounded-sm hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
@@ -67,10 +75,6 @@ const komponenteStore = useKomponenteStore()
         class="px-1 rounded-sm hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
       />
     </div>
-
-    <SearchBar v-if="treeViewState" class="text-sm h-8 w-full">
-      <input type="text" placeholder="Suche nach ..." class="outline-none w-full" />
-    </SearchBar>
 
     <!-- Baum -->
     <div v-if="treeViewState" class="pb-5 overflow-scroll scrollbar-hide text-stone-400">

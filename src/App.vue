@@ -1,4 +1,5 @@
 <script setup>
+import TheModal from './components/TheModal.vue'
 import { useModalStore } from './stores/modal'
 import WindowView from './views/WindowView.vue'
 
@@ -6,13 +7,8 @@ const modalStore = useModalStore()
 </script>
 
 <template>
-  <div
-    v-if="modalStore.showModal"
-    class="w-full h-full"
-    :class="{
-      'absolute z-4000': modalStore.showModal,
-    }"
-  ></div>
+  <TheModal></TheModal>
+
   <WindowView />
 </template>
 

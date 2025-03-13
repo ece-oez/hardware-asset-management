@@ -53,7 +53,8 @@ const filteredTestHardware = computed(() => {
 
   const searchHardware = testHardware.filter((hardware) => {
     const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
-    if (hardware[filterItem] === filterStore.currentFilterItem[filterItem]) return hardware
+    const result = hardware[filterItem].includes(filterStore.currentFilterItem[filterItem])
+    if (result) return hardware
   })
 
   return searchHardware
@@ -74,27 +75,62 @@ function updateFilterObj() {
   const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
 
   filterStore.currentFilterItem[filterItem] = filterStore.searchBarText
+
   filter.value = true
 }
+
+function getFilterToggleItem() {
+  return filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
+}
+
+const showSearchBarDropdown = ref(false)
 </script>
 
 <template>
   <div class="flex flex-col gap-5">
     <div class="w-full flex items-center gap-2">
-      <SearchBar class="w-full">
+      <SearchBar class="w-full h-full">
+        <TheIcons
+          @click="showSearchBarDropdown = !showSearchBarDropdown"
+          icon="bi bi-body-text"
+          class="text-2xl px-1 text-stone-600 border rounded-md"
+        ></TheIcons>
         <input
           type="text"
           placeholder="Suche nach ..."
           v-model="filterStore.searchBarText"
-          @change="filter = false"
-          class="outline-none w-full"
+          @change="updateFilterObj()"
+          class="outline-none w-full h-full ps-2"
+          :class="{ '': showSearchBarDropdown === true }"
         />
         <TheIcons
-          @click="updateFilterObj()"
-          icon="bi bi-search"
+          v-if="filterStore.searchBarText !== ''"
+          @click="((filterStore.searchBarText = ''), (filter = false))"
+          icon="bi bi-x"
           class="text-2xl ps-2 text-stone-600"
         ></TheIcons>
+        <div
+          v-if="showSearchBarDropdown"
+          class="absolute -translate-x-2 w-364 h-50 overflow-y-scroll translate-y-11 bg-white border rounded-md select-none border-stone-500"
+        >
+          <div
+            v-for="hardware in testHardware"
+            class="p-2 rounded-md cursor-pointer hover:bg-stone-200"
+            @click="
+              (((filterStore.searchBarText = hardware[getFilterToggleItem()]),
+              (showSearchBarDropdown = false)),
+              updateFilterObj())
+            "
+          >
+            {{ hardware[getFilterToggleItem()] }}
+          </div>
+        </div>
       </SearchBar>
+      <TheIcons
+        @click="updateFilterObj()"
+        icon="bi bi-search"
+        class="text-2xl border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-300 hover:text-white hover:duration-200 not-focus:duration-200"
+      ></TheIcons>
       <div
         @click="filterStore.filterToggleBarState = !filterStore.filterToggleBarState"
         class="select-none flex gap-2 items-center text-md border border-stone-500 p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-stone-200 hover:text-stone-800 hover:duration-300 not-focus:duration-200"
@@ -149,7 +185,11 @@ function updateFilterObj() {
       <tbody>
         <tr
           v-for="hardware in filteredTestHardware"
-          @click="((cardStore.cardState = true), (cardStore.currentHardware = hardware))"
+          @click="
+            ((cardStore.cardState = true),
+            (cardStore.currentHardware = hardware),
+            (cardStore.currentHardwareName = hardware.name))
+          "
           class="cursor-pointer hover:bg-stone-300 hover:text-black"
           :class="{ 'bg-stone-600 text-white': hardware.name === cardStore.currentHardware.name }"
         >
@@ -168,7 +208,7 @@ function updateFilterObj() {
       <caption class="caption-bottom">
         ( Die eingebaute/zugehörige Hardware zu
         {{
-          cardStore.currentHardware.name
+          cardStore.currentHardwareName
         }}
         )
       </caption>

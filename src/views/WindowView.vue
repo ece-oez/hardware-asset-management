@@ -14,11 +14,15 @@ const modalStore = useModalStore()
     <TheMenu
       v-if="menuStore.menuBtnState"
       class="w-1/5 border-e-2 border-stone-300 shadow-2xl shadow-stone-600"
-      :class="{ blur: modalStore.showModal }"
     />
 
+    <!-- Separates Div damit das overlay nicht über Menu liegt -->
     <div class="w-full h-screen" :class="{ 'blur-xs': menuStore.menuBtnState }">
-      <div v-if="menuStore.menuBtnState" class="absolute w-full h-full z-4000"></div>
+      <div
+        @click="menuStore.menuBtnState = false"
+        v-if="menuStore.menuBtnState"
+        class="absolute w-full h-full z-4000"
+      ></div>
 
       <TopBar class="w-full h-max p-3" :class="{ 'blur-xs': modalStore.showModal }"></TopBar>
 
