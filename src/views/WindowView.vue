@@ -26,7 +26,7 @@ const modalStore = useModalStore()
 
       <TopBar class="w-full h-max p-3" :class="{ 'blur-xs': modalStore.showModal }"></TopBar>
 
-      <RouterView class="w-full h-[93%]"></RouterView>
+      <RouterView class="w-full h-[90%]"></RouterView>
     </div>
   </div>
 

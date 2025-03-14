@@ -1,11 +1,13 @@
 <script setup>
 import ConstructionSite from '@/components/site_overlay/ConstructionSite.vue'
-import StartSection from '@/components/guide/sections/StartSection.vue'
-import MenuSection from '@/components/guide/sections/MenuSection.vue'
+import StartSection from '@/components/guide/StartSection.vue'
+import MenuSection from '@/components/guide/MenuSection.vue'
+import AccountSection from '@/components/guide/AccountSection.vue'
+import AnsehenSection from '@/components/guide/AnsehenSection.vue'
 </script>
 <template>
   <!-- <ConstructionSite><div class="font-bold">"Guide"</div></ConstructionSite> -->
-  <div class="w-full h-[90%] flex flex-col">
+  <div class="flex flex-col ps-5">
     <!-- scrolable elements -->
     <div class="overflow-y-scroll flex flex-col gap-10">
       <h1 class="text-7xl text-center">Guide</h1>
@@ -13,6 +15,9 @@ import MenuSection from '@/components/guide/sections/MenuSection.vue'
       <StartSection></StartSection>
       <!-- menu -->
       <MenuSection></MenuSection>
+      <!-- account -->
+      <AccountSection></AccountSection>
+      <AnsehenSection></AnsehenSection>
     </div>
   </div>
 </template>

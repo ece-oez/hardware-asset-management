@@ -5,7 +5,7 @@ import TextBlock from '@/components/guide/TextBlock.vue'
   <section class="flex flex-col gap-5">
     <h1 class="text-6xl text-center">Startseite – Überblick</h1>
     <div class="p-4 flex justify-around">
-      <div class="w-200 flex flex-col justify-center items-center gap-5">
+      <div class="w-1/2 flex flex-col justify-center items-center gap-5">
         <p class="text-lg">
           Wenn du die Anwendung öffnest, wirst du zwei Hauptbuttons auf der Startseite sehen:
         </p>
@@ -28,8 +28,8 @@ import TextBlock from '@/components/guide/TextBlock.vue'
           betrachten oder neue zu erstellen!
         </p>
       </div>
-      <div class="w-200 h-max border border-stone-400">
-        <img src="../../../assets/img/guide/start.png" alt="" />
+      <div class="w-1/2 h-max border border-stone-400">
+        <img src="../../assets/img/guide/start.png" alt="" />
       </div>
     </div>
   </section>

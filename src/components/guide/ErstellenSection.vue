@@ -1,12 +1,11 @@
 <script setup>
 import TextBlock from '@/components/guide/TextBlock.vue'
-import { parseAstAsync } from 'vite'
 </script>
 <template>
   <section class="flex flex-col gap-5">
     <h1 class="text-6xl text-center">Menü – Übersicht</h1>
     <div class="p-4 flex justify-around">
-      <div class="w-200 flex flex-col justify-center items-center gap-5">
+      <div class="w-1/2 flex flex-col justify-center items-center gap-5">
         <p class="text-lg">
           In deinem Menü findest du die folgenden Bereiche, die dir dabei helfen, schnell auf alle
           wichtigen Funktionen deiner Anwendung zuzugreifen:
@@ -26,11 +25,20 @@ import { parseAstAsync } from 'vite'
           title="Seiten"
           text=" Unter diesem Bereich findest du die wichtigsten Navigationsmöglichkeiten:"
         >
-          Home: Hier gelangst du zurück zur Startseite der Anwendung.
-          <br />
-          Ansehen: Über diesen Link kannst du vorhandene Inhalte oder Daten einsehen.
-          <br />
-          Erstellen: Hier kannst du neue Inhalte oder Daten hinzufügen.
+          <div class="ps-5">
+            <div>
+              <span class="font-bold"> Home: </span> Hier gelangst du zurück zur Startseite der
+              Anwendung.
+            </div>
+            <div>
+              <span class="font-bold">Ansehen:</span> Über diesen Link kannst du vorhandene Inhalte
+              oder Daten einsehen.
+            </div>
+            <div>
+              <span class="font-bold">Erstellen:</span> Hier kannst du neue Inhalte oder Daten
+              hinzufügen.
+            </div>
+          </div>
         </TextBlock>
 
         <TextBlock
@@ -38,9 +46,17 @@ import { parseAstAsync } from 'vite'
           title="Information"
           text="In diesem Bereich stehen dir weiterführende Informationen zur Verfügung:"
         >
-          Guide: Ein Leitfaden, der dir Schritt für Schritt zeigt, wie du die Anwendung effektiv
-          nutzt. Dokumentation: Eine detaillierte Sammlung von Informationen, die dir bei der
-          Nutzung der Anwendung helfen und weitere Funktionen erklären.
+          <div class="ps-5">
+            <div>
+              <span class="font-bold">Guide:</span>
+              Ein Leitfaden, der dir Schritt für Schritt zeigt, wie du die Anwendung effektiv nutzt.
+            </div>
+            <div>
+              <span class="font-bold">Dokumentation:</span>
+              Eine detaillierte Sammlung von Informationen, die dir bei der Nutzung der Anwendung
+              helfen und weitere Funktionen erklären.
+            </div>
+          </div>
         </TextBlock>
 
         <TextBlock
@@ -49,16 +65,19 @@ import { parseAstAsync } from 'vite'
           text="Hier kannst du die grundlegenden Einstellungen der Anwendung anpassen:"
         >
           <div class="ps-5">
-            <p>
-              <span class="font-bold"> Anwender:</span> Einstellungen, die speziell deinen
+            <div>
+              <span class="font-bold">Anwender:</span> Einstellungen, die speziell deinen
               Benutzeraccount betreffen.
-            </p>
-            <div>Anwendung: Hier kannst du globale Einstellungen der Anwendung konfigurieren.</div>
+            </div>
+            <div>
+              <span class="font-bold">Anwendung:</span> Hier kannst du globale Einstellungen der
+              Anwendung konfigurieren.
+            </div>
           </div>
         </TextBlock>
       </div>
-      <div class="w-200 h-max border border-stone-400">
-        <img src="../../../assets/img/guide/menu.png" alt="" />
+      <div class="w-1/2 h-max border border-stone-400">
+        <img src="../../assets/img/guide/menu.png" alt="" />
       </div>
     </div>
   </section>
