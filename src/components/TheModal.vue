@@ -45,7 +45,7 @@ function checkValidation() {
 }
 
 function closeModal() {
-  filterStore.formularFilterState = true
+  filterStore.formularFilterState = false
   modalStore.showModal = false
   validateState.value = ''
   clearModalSlots()
