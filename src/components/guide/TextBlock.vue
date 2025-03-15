@@ -6,8 +6,8 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="flex w-full gap-3">
-    <div class="h-full px-2 text-xl text-white flex justify-center items-center bg-black">
+  <div class="flex gap-3">
+    <div class="h-auto px-2 text-xl text-white flex justify-center items-center bg-black">
       {{ props.nummer }}
     </div>
     <div>
