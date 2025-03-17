@@ -6,19 +6,14 @@ const usrname = ref('')
 
 let pswdHash = ''
 
-// function mySubmit() {
-//   const hashObj = new jsSHA('SHA-512', 'TEXT', { numRounds: 1 })
-//   hashObj.update(pswd)
-//   const hash = hashObj.getHash('HEX')
-//   pswdHash = hash
-//   console.log(pswdHash)
-// }
+// SALTING
+// an das Password wird der zum Server zugehörig generierte Key angehängt dadurch entsteht ein hash welcher nicht in der Rainbow table steht (= standard passwörter und die zugehörigen hashwerte)
 </script>
 
 <template>
   <div class="absolute w-full h-full flex justify-center items-center z-2000">
     <div
-      class="absolute flex flex-col items-center gap-10 w-1/3 h-2/3 p-10 shadow-2xl rounded-xl border border-stone-500 z-3000"
+      class="absolute flex justify-center flex-col items-center gap-10 w-1/3 h-2/3 p-10 shadow-2xl rounded-xl border border-stone-500 z-3000"
     >
       <div class="text-4xl font-bold text-stone-700">login</div>
 
