@@ -45,7 +45,7 @@ function refreshData() {
             (tableStore.switchTableView(cardStore.currentHardware),
             (tableStore.showTable = 'komponentenTable'))
           "
-          class="bg-stone-500 text-white rounded-lg px-5 py-1 cursor-pointer hover:bg-stone-200 hover:duration-300 not-focus:duration-300 hover:text-stone-600"
+          class="bg-blue-400 text-white rounded-lg px-5 py-1 cursor-pointer hover:bg-stone-200 hover:duration-300 not-focus:duration-300 hover:text-stone-600"
         >
           Anzeigen
         </button>

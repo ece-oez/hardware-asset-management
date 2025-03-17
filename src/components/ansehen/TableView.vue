@@ -195,7 +195,7 @@ function refreshData() {
             (cardStore.currentHardwareName = hardware.name))
           "
           class="cursor-pointer hover:bg-stone-300 hover:text-black"
-          :class="{ 'bg-stone-600 text-white': hardware.name === cardStore.currentHardware.name }"
+          :class="{ 'bg-blue-300 text-white': hardware.name === cardStore.currentHardware.name }"
         >
           <td class="w-1/7 border border-stone-500 text-center">{{ hardware.name }}</td>
           <td class="w-1/7 border border-stone-500 text-center">{{ hardware.modellnummer }}</td>
