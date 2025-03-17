@@ -21,10 +21,10 @@ const modalStore = useModalStore()
       <div
         @click="menuStore.menuBtnState = false"
         v-if="menuStore.menuBtnState"
-        class="absolute w-full h-full z-4000"
+        class="absolute w-full h-full z-4000 opacity-30 bg-white"
       ></div>
 
-      <TopBar class="w-full h-max p-3" :class="{ 'blur-xs': modalStore.showModal }"></TopBar>
+      <TopBar class="w-full h-max p-3" :class="{ 'blur-sm': modalStore.showModal }"></TopBar>
 
       <RouterView class="w-full h-[90%]"></RouterView>
     </div>

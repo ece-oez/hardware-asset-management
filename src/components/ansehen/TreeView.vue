@@ -74,7 +74,7 @@ let filteredKategorien = ref(
 
     <!-- square -->
 
-    <div v-if="treeViewState" class="flex gap-1 text-stone-600 text-lg">
+    <div v-if="treeViewState" class="flex justify-around text-stone-600 text-lg">
       <TheIcons
         v-if="treeviewStore.toggleAllState === false"
         @click="

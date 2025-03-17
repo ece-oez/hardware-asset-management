@@ -26,7 +26,7 @@ export const useDatabaseStore = defineStore('database', () => {
   //     'modellnr': modellnr,
   //     'seriennr': seriennr,
   //   }
-    
+
   //   let jsn = JSON.stringify(obj);
 
   //   let response = await fetch(url, {
@@ -42,5 +42,5 @@ export const useDatabaseStore = defineStore('database', () => {
   //   console.log(answer);
   // }
 
-  return {  }
+  return {}
 })
