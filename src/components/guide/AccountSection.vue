@@ -36,7 +36,7 @@ Wenn du deinen Account vorübergehend verlassen möchtest, kannst du dich ganz e
         </TextBlock>
       </div>
       <div class="w-1/2 h-max border border-stone-400">
-        <img src="../../assets/img/guide/.png" alt="" />
+        <img src="../../assets/img/guide/account.png" alt="" />
       </div>
     </div>
   </section>
