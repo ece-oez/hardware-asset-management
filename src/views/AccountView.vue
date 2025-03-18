@@ -5,7 +5,7 @@ import { ref } from 'vue'
 const showMiniModal = ref(false)
 </script>
 <template>
-  <div>
+  <div class="overflow-y-scroll">
     <!-- modal -->
     <div v-if="showMiniModal" class="absolute w-full flex justify-center items-baseline">
       <div
