@@ -15,16 +15,16 @@ $pdo = new PDO("mysql:host=earth.stb-walhoefer.de:443;dbname=WALH_ITSOT4eceoez",
 
 // prüfen ob schon Eintrag gemacht wurde
 
-// $sql = "SELECT count(*) FROM `filme` WHERE Titel = :titel"; // SQL statement 
-// $statement = $pdo->prepare($sql);  // Datenbank verbindung (siehe oben)
-// $statement->bindParam(':titel', $parsed['titel']);
+// $sql = "SELECT count(*) FROM `hardware` WHERE name = :name"; // SQL statement 
+// $statement = $pdo->prepare($sql); 
+// $statement->bindParam(':name', $parsed['titel']);
 // $statement->execute(); 
 // $number_of_rows = $statement->fetchColumn(); // number of rows
 
 // if($number_of_rows > 0){
 //     http_response_code(400);
 //     $data = [
-//         'errormessage' => 'Film wurde schon angelegt!'
+//         'errormessage' => 'Hardware wurde schon angelegt!'
 //     ];
 //     echo json_encode($data);
 //     die();
@@ -76,12 +76,17 @@ $pdo = new PDO("mysql:host=earth.stb-walhoefer.de:443;dbname=WALH_ITSOT4eceoez",
 //     }
 
 
-$statement = $pdo->prepare('INSERT INTO test (Name,ModellNr,SerienNr) VALUES (?,?,?)');
+$statement = $pdo->prepare('INSERT INTO hardware (name, modellnummer, seriennummer, erfassungsdatum, hersteller, kategorie, ort, verbaut) VALUES (?,?,?,?,?,?,?,?)');
     
     $statement->bindParam(1, $parsed['name'], PDO::PARAM_STR_CHAR);
-    $statement->bindParam(2, $parsed['modellnr'], PDO::PARAM_STR_CHAR);
-    $statement->bindParam(3, $parsed['seriennr'], PDO::PARAM_STR_CHAR); 
-    
+    $statement->bindParam(2, $parsed['modellnummer'], PDO::PARAM_STR_CHAR);
+    $statement->bindParam(3, $parsed['seriennummer'], PDO::PARAM_STR_CHAR);
+    $statement->bindParam(4, $parsed['erfassungsdatum'], PDO::PARAM_STR_CHAR);
+    $statement->bindParam(5, $parsed['hersteller'], PDO::PARAM_STR_CHAR);
+    $statement->bindParam(6, $parsed['kategorie'], PDO::PARAM_STR_CHAR);
+    $statement->bindParam(7, $parsed['ort'], PDO::PARAM_STR_CHAR);
+    $statement->bindParam(8, $parsed['verbaut'], PDO::PARAM_STR_CHAR);
+
     $statement->execute();
 
     if($statement){

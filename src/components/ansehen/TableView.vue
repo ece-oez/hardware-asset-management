@@ -5,11 +5,15 @@ import TheIcons from '@/components/TheIcons.vue'
 import { useCardStore } from '@/stores/card'
 import { useTableStore } from '@/stores/table'
 import { useKomponenteStore } from '@/stores/komponenten'
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useModalStore } from '@/stores/modal'
 import { useFilterStore } from '@/stores/filter'
+import { useDatabaseStore } from '@/stores/database'
 
 // stores
+
+const databaseStore = useDatabaseStore()
+
 const cardStore = useCardStore()
 
 const tableStore = useTableStore()
@@ -19,6 +23,12 @@ const komponenteStore = useKomponenteStore()
 const modalStore = useModalStore()
 
 const filterStore = useFilterStore()
+
+const hardware = ref([])
+
+onMounted(async () => {
+  hardware.value = await databaseStore.getData()
+})
 
 // filter für Komponente Table
 const filteredKomponentenZurHardware = computed(() => {
@@ -37,29 +47,22 @@ const filteredKomponentenZurHardware = computed(() => {
 // filter für normale Table
 const filteredTestHardware = computed(() => {
   // filter anhand Treeview toggle btns
-  const filteredTestHardware = testHardware.filter((hardware) => {
-    for (let index = 0; index < komponenteStore.komponenten.length; index++) {
-      for (let i = 0; i < komponenteStore.komponenten[index].children.length; i++) {
-        if (komponenteStore.komponenten[index].children[i].show === false) continue
-        if (hardware.kategorie === komponenteStore.komponenten[index].children[i].heading)
-          return hardware
-      }
-    }
-  })
 
   if (filterStore.filter === true) {
-    const searchHardware = testHardware.filter((hardware) => {
+    const searchHardware = hardware.value.filter((hardwareItem) => {
       const filterItem = filterStore.mapFilterItems[filterStore.currentToggleFilterItem]
-      const result = hardware[filterItem].includes(filterStore.currentFilterItem[filterItem])
-      if (result) return hardware
+      const result = hardwareItem[filterItem].includes(filterStore.currentFilterItem[filterItem])
+      if (result) return hardwareItem
     })
     return searchHardware
-  } else if (filterStore.formularFilterState === true) {
+  }
+
+  if (filterStore.formularFilterState === true) {
     // filter anhand Filter formular
-    const searchFormularHardware = testHardware.filter((hardware) => {
+    const searchFormularHardware = hardware.value.filter((hardwareItem) => {
       let resultCount = 0
       for (let index = 0; index < 7; index++) {
-        const result = hardware[filterStore.filterItems[index]].includes(
+        const result = hardwareItem[filterStore.filterItems[index]].includes(
           filterStore.currentFilterItem[filterStore.filterItems[index]],
         )
 
@@ -67,11 +70,23 @@ const filteredTestHardware = computed(() => {
       }
 
       if (resultCount === 7) {
-        return hardware
+        return hardwareItem
       }
     })
     return searchFormularHardware
-  } else return filteredTestHardware
+  } else {
+    const filteredHardware = hardware.value.filter((hardwareItem) => {
+      for (let index = 0; index < komponenteStore.komponenten.length; index++) {
+        for (let i = 0; i < komponenteStore.komponenten[index].children.length; i++) {
+          if (komponenteStore.komponenten[index].children[i].show === false) continue
+          if (hardwareItem.kategorie === komponenteStore.komponenten[index].children[i].heading)
+            return hardwareItem
+        }
+      }
+    })
+
+    return filteredHardware
+  }
 })
 
 // func für SearchBtn: SearchBar inputText in reactive Object speichern und filter auf true setzen um "filter anhand SearchBar inputText" zu triggern

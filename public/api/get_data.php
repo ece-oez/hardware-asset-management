@@ -3,20 +3,20 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     http_response_code(403);
     exit();
 }
 
 $pdo = new PDO("mysql:host=earth.stb-walhoefer.de:443;dbname=WALH_ITSOT4eceoez", "eceoez", "Pwd456789!");
 
-$statemenet = $pdo->prepare('SELECT * FROM test');
+$statement = $pdo->prepare('SELECT * FROM hardware');
 
-$status = $statemenet->execute();
+$status = $statement->execute();
 
 $arr=[];
 
-while ($row = $statemenet->fetch()) {
+while ($row = $statement->fetch(PDO::FETCH_NAMED)) {
     array_push($arr, $row);
 }
 
