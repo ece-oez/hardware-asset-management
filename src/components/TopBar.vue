@@ -16,7 +16,7 @@ const menuStore = useMenuStore()
         class="border border-stone-400 px-1 rounded-lg text-stone-600 hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
       />
 
-      <img src="../../favicon.png" class="w-9" alt="" />
+      <img src="../../public/favicon.png" class="w-9" alt="" />
     </div>
 
     <RouterLink to="/account">

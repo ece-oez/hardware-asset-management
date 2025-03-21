@@ -2,65 +2,71 @@ import { ref, computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useDatabaseStore = defineStore('database', () => {
-  // const url = 'public/api/get_data.php'
-  
-  const url = 'http://localhost/test/get_data.php'
-  const fetchedData = ref(null);
-  const fetchState = ref('loading');
+  const url = 'api/get_data.php'
+
+  // const url = 'http://localhost/test/get_data.php'
+  const fetchedData = ref(null)
+  const fetchState = ref('loading')
 
   async function getData() {
-
-    let response;
+    let response
     try {
       response = await fetch(url, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
-        }
-      });
-      if (!response.ok) throw new Error('Response not okey!');
+        },
+      })
+      if (!response.ok) throw new Error('Response not okey!')
     } catch {
-      fetchState.value = 'failed';
-      return;
+      fetchState.value = 'failed'
+      return
     }
 
-    
-    const obj = await response.json();
+    const obj = await response.json()
 
     return obj
-
-    
   }
 
-  async function createData(name, modellnummer, seriennummer, erfassungsdatum, hersteller, kategorie, ort, verbaut) {
-  const url = 'http://localhost/test/create_data.php'
+  async function createData(
+    name,
+    modellnummer,
+    seriennummer,
+    erfassungsdatum,
+    hersteller,
+    kategorie,
+    ort,
+    verbaut,
+  ) {
+    const url = 'api/create_data.php'
+
+    // const url = 'http://localhost/test/create_data.php'
 
     let obj = {
-      'name': name,
-      'modellnummer': modellnummer,
-      'seriennummer': seriennummer,
-      'erfassungsdatum': erfassungsdatum,
-      'hersteller': hersteller,
-      'kategorie': kategorie,
-      'ort': ort,
-      'verbaut': verbaut,
+      name: name,
+      modellnummer: modellnummer,
+      seriennummer: seriennummer,
+      erfassungsdatum: erfassungsdatum,
+      hersteller: hersteller,
+      kategorie: kategorie,
+      ort: ort,
+      verbaut: verbaut,
     }
 
-    let jsn = JSON.stringify(obj);
+    let jsn = JSON.stringify(obj)
 
     let response = await fetch(url, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
       },
-      "body": jsn
+      body: jsn,
     })
 
     const answer = await response.json()
 
-    console.log(answer);
+    console.log(answer)
   }
 
-
-  return {createData, getData, fetchedData, fetchState}
+  return { createData, getData, fetchedData, fetchState }
 })

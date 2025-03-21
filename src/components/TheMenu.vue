@@ -11,7 +11,7 @@ const menuStore = useMenuStore()
     class="absolute h-full flex flex-col gap-3 p-3 z-5000 top-0 rounded-e-xl bg-white menuSlideAnimation"
   >
     <div class="flex justify-between">
-      <img src="../../favicon.png" class="w-9" alt="" />
+      <img src="../../public/favicon.png" class="w-9" alt="" />
 
       <!-- <RouterLink to="/account">
         <TheIcons icon="bi bi-person-circle" class="px-1 text-stone-600 w-max text-3xl"></TheIcons>
