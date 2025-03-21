@@ -2,9 +2,9 @@ import { ref, computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useDatabaseStore = defineStore('database', () => {
-  const url = 'https://animated-cascaron-f6c804.netlify.app/api/get_data.php'
+  // const url = 'https://ham-ace.netlify.app/api/get_data.php'
 
-  // const url = 'http://localhost/test/get_data.php'
+  const url = 'http://localhost/test/get_data.php'
   const fetchedData = ref(null)
   const fetchState = ref('loading')
 
@@ -38,9 +38,9 @@ export const useDatabaseStore = defineStore('database', () => {
     ort,
     verbaut,
   ) {
-    const url = 'https://animated-cascaron-f6c804.netlify.app/api/create_data.php'
+    // const url = 'https://ham-ace.netlify.app/api/create_data.php'
 
-    // const url = 'http://localhost/test/create_data.php'
+    const url = 'http://localhost/test/create_data.php'
 
     let obj = {
       name: name,
