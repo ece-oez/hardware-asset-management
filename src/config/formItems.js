@@ -2,25 +2,41 @@ export const formItems = [
   {
     label: "Name"
     , id: "name"
+    ,value: ""
   }
   , {
     label: "Modellnummer"
-    , id: "modellNumber"
+    , id: "modellnummer"
+    ,value: ""
   }
   , {
     label: "Seriennummer"
-    , id: "serialNumber"
+    , id: "seriennummer"
+    ,value: ""
   }
   , {
     label: "Erfassungsdatum"
-    , id: "date"
+    , id: "erfassungsdatum"
+    ,value: ""
+  }
+  , {
+    label: "Hersteller"
+    , id: "hersteller"
+    ,value: ""
   }
   , {
     label: "Kategorie"
-    , id: "category"
+    , id: "kategorie"
+    ,value: ""
   }
   , {
     label: "Ort"
-    , id: "location"
+    , id: "ort"
+    ,value: ""
+  }
+  , {
+    label: "Verbaut"
+    , id: "verbaut"
+    ,value: ""
   }
 ]
