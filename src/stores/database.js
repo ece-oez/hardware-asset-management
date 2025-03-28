@@ -1,11 +1,11 @@
-import { ref, computed, reactive } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useDatabaseStore = defineStore('database', () => {
   // const url = 'https://ham-ace.netlify.app/api/get_data.php'
 
   const url = 'http://localhost/test/get_data.php'
-  const fetchedData = ref(null)
+  // const fetchedData = ref(null)
   const fetchState = ref('loading')
 
   async function getData() {
@@ -68,5 +68,29 @@ export const useDatabaseStore = defineStore('database', () => {
     console.log(answer)
   }
 
-  return { createData, getData, fetchedData, fetchState }
+  async function deleteData(id) {
+    // const url = 'https://ham-ace.netlify.app/api/create_data.php'
+
+    const url = 'http://localhost/test/delete_data.php'
+
+    let obj = {
+      id: id,
+    }
+
+    let jsn = JSON.stringify(obj)
+
+    let response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: jsn,
+    })
+
+    const answer = await response.json()
+
+    console.log(answer)
+  }
+
+  return { createData, getData, deleteData }
 })

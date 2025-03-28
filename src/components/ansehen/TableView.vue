@@ -1,5 +1,4 @@
 <script setup>
-import { testHardware } from '@/config/testHardware'
 import SearchBar from '@/components/ansehen/SearchBar.vue'
 import TheIcons from '@/components/TheIcons.vue'
 import { useCardStore } from '@/stores/card'
@@ -101,9 +100,6 @@ function updateFilterObj() {
 function updateHardware() {
   alert('updated')
 }
-function deleteHardware() {
-  alert('deleted')
-}
 
 // func für RefreshBtn: normale Tabelle anzeigen, InformationCard schließen, ausgewählte Hardware leer setzen
 function refreshData() {
@@ -163,7 +159,7 @@ function refreshData() {
         Bearbeiten
       </button>
       <button
-        @click="deleteHardware()"
+        @click="databaseStore.deleteData(cardStore.currentHardware.id)"
         :disabled="cardStore.currentHardware === ''"
         class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-red-100 hover:duration-200 not-focus:duration-200 disabled:hidden"
       >

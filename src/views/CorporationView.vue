@@ -2,7 +2,7 @@
 <template>
   <div class="flex flex-col items-center gap-10 p-5 overflow-y-scroll">
     <div class="w-50">
-      <img src="../../public/favicon.png" alt="" />
+      <img src="../../favicon.png" alt="" />
     </div>
     <h1 class="text-5xl">Hardware Asset Management System</h1>
     <h2 class="text-stone-600 text-4xl">Produced by ACE Inc.</h2>
