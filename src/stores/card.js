@@ -1,9 +1,10 @@
-import { ref, computed, reactive } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCardStore = defineStore('card', () => {
   const cardState = ref(false)
-  const currentHardware = reactive({})
+  const currentHardware = ref('')
+  const currentHardwareName = ref('')
 
-  return { cardState, currentHardware }
+  return { cardState, currentHardware, currentHardwareName }
 })
