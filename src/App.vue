@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import TheLogin from './components/TheLogin.vue'
+import UpdateFormular from './components/UpdateFormular.vue'
 import TheModal from './components/TheModal.vue'
 import WindowView from './views/WindowView.vue'
 const loginState = false
@@ -9,6 +10,7 @@ const loginState = false
 <template>
   <TheLogin v-if="loginState"></TheLogin>
   <TheModal></TheModal>
+  <UpdateFormular></UpdateFormular>
 
   <WindowView :class="{ 'blur - sm': loginState }" />
 </template>

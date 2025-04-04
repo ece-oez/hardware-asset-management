@@ -98,7 +98,8 @@ function updateFilterObj() {
 }
 
 function updateHardware() {
-  alert('updated')
+  // alert('updated')
+  databaseStore.updateFormular = true
 }
 
 // func für RefreshBtn: normale Tabelle anzeigen, InformationCard schließen, ausgewählte Hardware leer setzen
@@ -108,6 +109,11 @@ function refreshData() {
   cardStore.currentHardware = ''
   // filterStore.currentFilterItem = filterStore.deletedFilterItem
   filterStore.formularFilterState = false
+}
+
+async function deleteData() {
+  databaseStore.deleteData(cardStore.currentHardware.id)
+  hardware.value = await databaseStore.getData()
 }
 </script>
 
@@ -159,7 +165,7 @@ function refreshData() {
         Bearbeiten
       </button>
       <button
-        @click="databaseStore.deleteData(cardStore.currentHardware.id)"
+        @click="(deleteData(), refreshData())"
         :disabled="cardStore.currentHardware === ''"
         class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-red-100 hover:duration-200 not-focus:duration-200 disabled:hidden"
       >

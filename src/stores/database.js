@@ -8,6 +8,8 @@ export const useDatabaseStore = defineStore('database', () => {
   // const fetchedData = ref(null)
   const fetchState = ref('loading')
 
+  const updateFormular = false
+
   async function getData() {
     let response
     try {
@@ -92,5 +94,46 @@ export const useDatabaseStore = defineStore('database', () => {
     console.log(answer)
   }
 
-  return { createData, getData, deleteData }
+  async function updateData(
+    id,
+    name,
+    modellnummer,
+    seriennummer,
+    erfassungsdatum,
+    hersteller,
+    kategorie,
+    ort,
+    verbaut,
+  ) {
+    // const url = 'https://ham-ace.netlify.app/api/create_data.php'
+
+    const url = 'http://localhost/test/update_data.php'
+
+    let obj = {
+      id: id,
+      name: name,
+      modellnummer: modellnummer,
+      seriennummer: seriennummer,
+      erfassungsdatum: erfassungsdatum,
+      hersteller: hersteller,
+      kategorie: kategorie,
+      ort: ort,
+      verbaut: verbaut,
+    }
+
+    let jsn = JSON.stringify(obj)
+
+    let response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: jsn,
+    })
+
+    const answer = await response.json()
+
+    console.log(answer)
+  }
+  return { updateFormular, createData, getData, deleteData, updateData }
 })
