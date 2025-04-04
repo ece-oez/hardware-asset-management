@@ -1,12 +1,12 @@
 <script setup>
-import { formItems } from '@/config/formItems';
+import { formItems } from '@/config/formItems'
 // import containedComponentsList from '@/components/containedComponentsList.vue';
-import { useDatabaseStore } from '@/stores/database';
+import { useDatabaseStore } from '@/stores/database'
 
-const databaseStore = useDatabaseStore();
+const databaseStore = useDatabaseStore()
 
 const submitForm = (pFormItems) => {
-  const formValues = Object.fromEntries(pFormItems.map(item => [item.id, item.value]));
+  const formValues = Object.fromEntries(pFormItems.map((item) => [item.id, item.value]))
 
   databaseStore.createData(
     formValues.name,
@@ -16,22 +16,27 @@ const submitForm = (pFormItems) => {
     formValues.hersteller,
     formValues.kategorie,
     formValues.ort,
-    formValues.verbaut
-  );
-};
-
+    formValues.verbaut,
+  )
+}
 </script>
 <template>
-  <div>
-    <div class="grid grid-cols-1 gap-1">
-      <div v-for="formItem in formItems" :key=formItem.label class="flex flex-col w-[200px] m-2">
-        <label>{{ formItem.label }}</label>
-        <input v-model="formItem.value" type="text" class="w-full border-1" />
+  <div class="pt-5 ps-4">
+    <div class="flex flex-col gap-5">
+      <div v-for="formItem in formItems" :key="formItem.label" class="flex">
+        <div class="font-bold w-1/5 text-start flex items-center">{{ formItem.label }}:</div>
+        <div class="flex border border-stone-400 rounded-sm p-2 w-2/4">
+          <input type="text" v-model="formItem.value" class="outline-none w-full" />
+        </div>
       </div>
     </div>
-    <Button type="button"
-      class="m-2 w-[200px] rounded-md bg-black p-2 hover:bg-grey-200 text-white hover:text-black transition duration-200"
-      @click="submitForm(formItems)">Erstellen</Button>
+
+    <Button
+      type="button"
+      class="mt-4 w-[200px] rounded-md bg-blue-400 p-2 hover:bg-gray-200 text-white hover:text-black duration-300"
+      @click="submitForm(formItems)"
+      >Erstellen</Button
+    >
     <!-- <containedComponentsList /> -->
   </div>
 </template>
