@@ -31,27 +31,22 @@ function update() {
     class="absolute flex justify-center z-4000 items-center w-full h-full"
   >
     <div
-      class="w-250 h-150 bg-white opacity-90 shadow-lg z-5000 blur-none rounded-xl flex flex-col gap-10 p-6"
+      class="w-250 h-160 bg-white opacity-90 shadow-lg z-5000 blur-none rounded-xl flex flex-col gap-5 p-6"
     >
       <div class="text-3xl bold">Hardware Überarbeiten</div>
 
       <div class="flex flex-col items-center gap-4">
-        <div v-for="info in filterStore.modalSlotsCap" class="flex gap-4 items-center w-full">
-          <div class="font-bold w-1/4 text-end">{{ info[0] }}:</div>
-          <div class="flex border border-stone-400 rounded-sm p-2 w-3/4">
+        <div
+          v-for="(information, index) in cardStore.currentHardware"
+          class="flex gap-4 items-center w-full"
+        >
+          <div v-if="index !== 'id'" class="font-bold w-1/4 text-end">{{ index }}:</div>
+          <div v-if="index !== 'id'" class="flex border border-stone-400 rounded-sm p-2 w-3/4">
             <input
               type="text"
-              v-model="cardStore.currentHardware[filterStore.mapFilterItems[info[0]]]"
+              v-model="cardStore.currentHardware[index]"
               class="outline-none w-full"
             />
-          </div>
-          <div v-if="validateState === false" class="w-1/6">
-            <div
-              v-if="formInput[filterStore.mapFilterItems[info[0]]] === ''"
-              class="w-full ps-4 text-start text-red-600"
-            >
-              Eingabe fehlt
-            </div>
           </div>
         </div>
       </div>

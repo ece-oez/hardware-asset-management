@@ -23,7 +23,7 @@ function refreshData() {
     ></TheIcons>
 
     <div v-for="(information, index) in cardStore.currentHardware" class="p-1">
-      <div v-if="index !== 'id'" class="flex justify- between border-b border-stone-300">
+      <div v-if="index !== 'id'" class="flex justify-between border-b border-stone-300">
         <div>
           {{ index + ': ' }}
         </div>
