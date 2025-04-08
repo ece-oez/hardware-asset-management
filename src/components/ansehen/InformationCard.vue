@@ -19,14 +19,11 @@ function refreshData() {
     <TheIcons
       icon="bi bi-x"
       @click="refreshData()"
-      class="text-2xl border w-max px-1 rounded-full"
+      class="text-2xl w-max px-1 rounded-full"
     ></TheIcons>
 
-    <div
-      v-for="(information, index) in cardStore.currentHardware"
-      class="p-1 border-b border-stone-300"
-    >
-      <div class="flex justify-between">
+    <div v-for="(information, index) in cardStore.currentHardware" class="p-1">
+      <div v-if="index !== 'id'" class="flex justify- between border-b border-stone-300">
         <div>
           {{ index + ': ' }}
         </div>

@@ -111,7 +111,16 @@ function refreshData() {
   filterStore.formularFilterState = false
 }
 
-async function deleteData() {
+const deleteModal = ref(false)
+const deleteState = ref(false)
+
+function deleteData() {
+  if (!deleteState) return
+  permanentlyDeleteData()
+  refreshData()
+}
+
+async function permanentlyDeleteData() {
   databaseStore.deleteData(cardStore.currentHardware.id)
   hardware.value = await databaseStore.getData()
 }
@@ -119,6 +128,37 @@ async function deleteData() {
 
 <template>
   <div class="flex flex-col gap-5">
+    <!-- modal -->
+    <div v-if="deleteModal" class="absolute w-full flex justify-center items-baseline">
+      <div
+        class="bg-white z-5000 p-5 shadow-2xl rounded-lg flex flex-col items-center justify-center gap-5"
+      >
+        <TheIcons
+          icon="bi bi-trash3"
+          class="text-5xl text-red-500 flex items-center justify-center"
+        />
+
+        <div>Sind Sie sicher, dass Sie diese Hardware löschen wollen?</div>
+        <div class="flex gap-10">
+          <button
+            @click="((deleteModal = false), (deleteState = true), deleteData())"
+            class="border rounded-lg bg-red-400 border-red-400 text-white h-10 px-10 hover:bg-stone-200 hover:text-stone-600 hover:duration-300 not-focus:duration-300"
+          >
+            ja
+          </button>
+          <button
+            @click="((deleteModal = false), (deleteState = false))"
+            class="border rounded-lg text-stone-600 h-10 px-10 hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
+          >
+            nein
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="deleteModal === true" class="absolute w-full h-[90%] z-3000"></div>
+    <!-- model container -->
+
     <!-- Searchbar, SearchIcon, SearchItem, SearchClear, FilterIcon, RefreshIcon -->
     <div class="w-full flex items-center gap-2">
       <!-- Searchbar -->
@@ -165,7 +205,7 @@ async function deleteData() {
         Bearbeiten
       </button>
       <button
-        @click="(deleteData(), refreshData())"
+        @click="deleteModal = true"
         :disabled="cardStore.currentHardware === ''"
         class="uppercase select-none flex gap-2 items-center text-md p-2 h-full px-3 rounded-lg text-stone-600 hover:bg-red-100 hover:duration-200 not-focus:duration-200 disabled:hidden"
       >

@@ -1,10 +1,10 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import TheLogin from './components/TheLogin.vue'
 import UpdateFormular from './components/UpdateFormular.vue'
 import TheModal from './components/TheModal.vue'
 import WindowView from './views/WindowView.vue'
-const loginState = false
+const loginState = ref(false)
 </script>
 
 <template>

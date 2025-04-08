@@ -1,6 +1,7 @@
 <script setup>
 import ConstructionSite from '@/components/site_overlay/ConstructionSite.vue'
 import StartSection from '@/components/guide/StartSection.vue'
+import TopBarSection from '@/components/guide/TopBarSection.vue'
 import MenuSection from '@/components/guide/MenuSection.vue'
 import AccountSection from '@/components/guide/AccountSection.vue'
 import AnsehenSection from '@/components/guide/AnsehenSection.vue'
@@ -13,6 +14,8 @@ import AnsehenSection from '@/components/guide/AnsehenSection.vue'
       <h1 class="text-7xl text-center">Guide</h1>
       <!-- start section -->
       <StartSection></StartSection>
+
+      <TopBarSection></TopBarSection>
       <!-- menu -->
       <MenuSection></MenuSection>
       <!-- account -->

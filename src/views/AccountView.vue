@@ -1,8 +1,14 @@
 <script setup>
 import TheIcons from '@/components/TheIcons.vue'
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
 const showMiniModal = ref(false)
+
+const accountCredentials = reactive({
+  name: 'Ece Özmen ',
+  username: 'eo-13',
+  passwort: '1234567890',
+})
 </script>
 <template>
   <div class="overflow-y-scroll">
@@ -62,19 +68,34 @@ const showMiniModal = ref(false)
       <div class="w-1/3">
         <div class="text-stone-600">Profilname</div>
         <div class="flex border border-stone-400 rounded-sm p-2 w-full">
-          <input type="text" placeholder="Ece Özmen" class="outline-none w-full" />
+          <input
+            type="text"
+            placeholder="Max Mustermann"
+            v-model="accountCredentials.name"
+            class="outline-none w-full"
+          />
         </div>
       </div>
       <div class="w-1/3">
-        <div class="text-stone-600">Username</div>
+        <div class="text-stone-600">Benutzername</div>
         <div class="flex border border-stone-400 rounded-sm p-2 w-full">
-          <input type="text" placeholder="eo-13" class="outline-none w-full" />
+          <input
+            type="text"
+            placeholder="max123"
+            v-model="accountCredentials.username"
+            class="outline-none w-full"
+          />
         </div>
       </div>
       <div class="w-1/3">
         <div class="text-stone-600">Passwort</div>
         <div class="flex border border-stone-400 rounded-sm p-2 w-full">
-          <input type="password" placeholder="info-ente1299!Heiko" class="outline-none w-full" />
+          <input
+            type="password"
+            placeholder="123max456"
+            v-model="accountCredentials.passwort"
+            class="outline-none w-full"
+          />
         </div>
       </div>
 

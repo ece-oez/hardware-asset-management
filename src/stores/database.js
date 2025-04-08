@@ -8,7 +8,7 @@ export const useDatabaseStore = defineStore('database', () => {
   // const fetchedData = ref(null)
   const fetchState = ref('loading')
 
-  const updateFormular = false
+  const updateFormular = ref(false)
 
   async function getData() {
     let response
@@ -135,5 +135,33 @@ export const useDatabaseStore = defineStore('database', () => {
 
     console.log(answer)
   }
+
+  async function userLogin(username, password) {
+    // const url = 'https://ham-ace.netlify.app/api/create_data.php'
+
+    const url = 'http://localhost/test/login.php'
+
+    let obj = {
+      username: username,
+      password: password,
+    }
+
+    let jsn = JSON.stringify(obj)
+
+    let response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: jsn,
+    })
+
+    const answer = await response.json()
+
+    if (response.ok) {
+      console.log(answer)
+    }
+  }
+
   return { updateFormular, createData, getData, deleteData, updateData }
 })

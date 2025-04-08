@@ -4,8 +4,6 @@ import { ref } from 'vue'
 const pswd = ref('')
 const usrname = ref('')
 
-let pswdHash = ''
-
 // SALTING
 // an das Password wird der zum Server zugehörig generierte Key angehängt dadurch entsteht ein hash welcher nicht in der Rainbow table steht (= standard passwörter und die zugehörigen hashwerte)
 </script>
@@ -35,7 +33,7 @@ let pswdHash = ''
         <div class="flex items-center justify-center gap-2 h-full">
           <div>Passwort vergessen?</div>
         </div>
-        <a class="underline text-blue-500" href="">passwort zurücksetzen</a>
+        <a class="underline font-light text-blue-500" href="">hier</a>
       </div>
       <button
         @click="mySubmit()"

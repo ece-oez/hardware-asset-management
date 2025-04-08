@@ -6,24 +6,9 @@ import TextBlock from '@/components/guide/TextBlock.vue'
     <h1 class="text-6xl text-center">Menü – Übersicht</h1>
     <div class="p-4 flex justify-around">
       <div class="w-1/2 flex flex-col justify-center items-center gap-5">
-        <p class="text-lg">
-          In deinem Menü findest du die folgenden Bereiche, die dir dabei helfen, schnell auf alle
-          wichtigen Funktionen deiner Anwendung zuzugreifen:
-        </p>
-
         <TextBlock
           class="w-full"
           nummer="1"
-          title="Account"
-          text="Ganz oben im Menü findest du das Account-Icon. Über dieses Symbol gelangst du zu
-                  deinen Account-Einstellungen, wo du persönliche Daten bearbeiten und dein Konto
-                  verwalten kannst. Außerdem findest du hier die Möglichkeit, dich abzumelden und
-                  weitere Kontooptionen, wie man es gewohnt ist."
-        />
-
-        <TextBlock
-          class="w-full"
-          nummer="2"
           title="Seiten"
           text=" Unter diesem Bereich findest du die wichtigsten Navigationsmöglichkeiten:"
         >
@@ -45,7 +30,7 @@ import TextBlock from '@/components/guide/TextBlock.vue'
 
         <TextBlock
           class="w-full"
-          nummer="3"
+          nummer="2"
           title="Information"
           text="In diesem Bereich stehen dir weiterführende Informationen zur Verfügung:"
         >
@@ -64,7 +49,7 @@ import TextBlock from '@/components/guide/TextBlock.vue'
 
         <TextBlock
           class="w-full"
-          nummer="4"
+          nummer="3"
           title="Einstellungen"
           text="Hier kannst du die grundlegenden Einstellungen der Anwendung anpassen:"
         >

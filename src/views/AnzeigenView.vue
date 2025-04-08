@@ -40,7 +40,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="flex gap-3 p-4">
+  <div class="flex gap-3 p-4 overflow-y-scroll">
     <TreeView class="w-1/5" :class="{ 'blur-sm': modalStore.showModal }"></TreeView>
     <TableView class="w-full" :class="{ 'blur-sm': modalStore.showModal }"></TableView>
     <InformationCard
