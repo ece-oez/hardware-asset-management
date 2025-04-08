@@ -5,6 +5,7 @@ import MenuSection from '@/components/guide/MenuSection.vue'
 import AccountSection from '@/components/guide/AccountSection.vue'
 import AnsehenSection from '@/components/guide/AnsehenSection.vue'
 import LoeschenSection from '@/components/guide/LoeschenSection.vue'
+import ErstellenSection from '@/components/guide/ErstellenSection.vue'
 </script>
 <template>
   <!-- <ConstructionSite><div class="font-bold">"Guide"</div></ConstructionSite> -->
@@ -23,6 +24,7 @@ import LoeschenSection from '@/components/guide/LoeschenSection.vue'
       <AccountSection></AccountSection>
       <AnsehenSection></AnsehenSection>
       <LoeschenSection></LoeschenSection>
+      <ErstellenSection></ErstellenSection>
     </div>
   </div>
 </template>
