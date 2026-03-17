@@ -13,20 +13,28 @@ const modalStore = useModalStore()
   <div class="h-screen w-full flex flex-row">
     <TheMenu
       v-if="menuStore.menuBtnState"
-      class="w-1/5 border-e-2 border-stone-300 shadow-2xl shadow-stone-600"
+      class="w-max border-stone-300 shadow-lg shadow-stone-400"
     />
 
     <!-- Separates Div damit das overlay nicht über Menu liegt -->
-    <div class="w-full h-screen" :class="{ 'blur-xs': menuStore.menuBtnState }">
+    <div
+      v-if="menuStore.menuBtnState"
+      @click="menuStore.menuBtnState = false"
+      class="w-full h-full absolute z-200 bg-stone-200 opacity-60"
+    ></div>
+    <div
+      class="w-full h-screen"
+      :class="{ 'blur-xs': menuStore.menuBtnState || modalStore.showModal }"
+    >
       <div
         @click="menuStore.menuBtnState = false"
         v-if="menuStore.menuBtnState"
         class="absolute w-full h-full z-4000 opacity-30 bg-white"
       ></div>
 
-      <TopBar class="w-full h-max p-3" :class="{ 'blur-sm': modalStore.showModal }"></TopBar>
+      <TopBar class="w-full h-max absolute p-3"></TopBar>
 
-      <RouterView class="w-full h-[90%]"></RouterView>
+      <RouterView class="w-full h-full pt-20 overflow-hide"></RouterView>
     </div>
   </div>
 
@@ -34,6 +42,9 @@ const modalStore = useModalStore()
 </template>
 
 <style scoped>
+.overflow-hide {
+  overflow: hidden;
+}
 @media only screen and (max-width: 1500px) {
   .height {
     height: 50px;

@@ -41,11 +41,8 @@ onMounted(() => {
 </script>
 <template>
   <div class="flex gap-3 p-4 overflow-y-scroll">
-    <TreeView class="w-1/5" :class="{ 'blur-sm': modalStore.showModal }"></TreeView>
-    <TableView class="w-full" :class="{ 'blur-sm': modalStore.showModal }"></TableView>
-    <InformationCard
-      v-if="cardStore.cardState"
-      :class="{ 'blur-sm': modalStore.showModal }"
-    ></InformationCard>
+    <TreeView class="w-1/5"></TreeView>
+    <TableView class="w-full"></TableView>
+    <InformationCard v-if="cardStore.cardState"></InformationCard>
   </div>
 </template>

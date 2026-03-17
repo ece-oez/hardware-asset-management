@@ -64,11 +64,19 @@ function clearModalSlots() {
     class="absolute flex justify-center z-4000 items-center w-full h-full"
   >
     <div
-      class="w-250 h-130 bg-white opacity-90 shadow-lg z-5000 blur-none rounded-xl flex flex-col gap-10 p-6"
+      @click="modalStore.showModal = false"
+      class="absolute flex justify-center z-3500 items-center w-full h-full bg-gray-400 opacity-50"
+    ></div>
+
+    <div
+      class="w-full md:w-250 h-full overflow-y-scroll md:overflow-y-hidden md:h-max bg-white opacity-90 shadow-lg z-5000 blur-none md:rounded-xl flex flex-col gap-10 p-6"
     >
       <div class="flex flex-col items-center gap-4">
-        <div v-for="info in filterStore.modalSlotsCap" class="flex gap-4 items-center w-full">
-          <div class="font-bold w-1/4 text-end">{{ info[0] }}:</div>
+        <div
+          v-for="info in filterStore.modalSlotsCap"
+          class="flex flex-wrap md:flex-nowrap gap-4 items-center w-full"
+        >
+          <div class="font-bold w-1/4 text-start md:text-end">{{ info[0] }}:</div>
           <div class="flex border border-stone-400 rounded-sm p-2 w-3/4">
             <input
               type="text"
@@ -88,17 +96,17 @@ function clearModalSlots() {
         </div>
       </div>
 
-      <div class="flex gap-15 justify-center">
+      <div class="flex gap-5 justify-center">
         <button
           @click="(checkValidation(), sendHardware())"
-          class="bg-blue-400 text-white rounded-lg h-10 w-1/5 hover:bg-stone-200 hover:duration-300 not-focus:duration-300 hover:text-stone-600"
+          class="bg-blue-400 text-white rounded-lg py-4 w-full hover:bg-stone-200 hover:duration-300 not-focus:duration-300 hover:text-stone-600"
           type="submit"
         >
           Senden
         </button>
         <button
           @click="closeModal()"
-          class="border rounded-lg h-10 w-1/5 hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
+          class="border border-gray-300 rounded-lg py-4 w-full hover:bg-stone-200 hover:duration-300 not-focus:duration-300"
         >
           Schließen
         </button>
